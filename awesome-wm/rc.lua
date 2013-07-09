@@ -1,8 +1,10 @@
+vicicous = require("vicious")
 -- Standard awesome library
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
 require("volume")
+require("blingbling")
 -- Theme handling library
 require("beautiful")
 -- Notification library
@@ -27,6 +29,82 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+
+-- Initialize widget
+memwidget = widget({ type = "textbox" })
+-- Register widget
+vicious.register(memwidget, vicious.widgets.mem, "$1%", 13)
+
+-- Initialize widget
+cpuwidget = awful.widget.graph()
+-- Graph properties
+cpuwidget:set_width(50)
+cpuwidget:set_background_color("#494B4F")
+cpuwidget:set_color("#FF5656")
+cpuwidget:set_gradient_colors({ "#FF5656", "#88A175", "#AECF96" })
+-- Register widget
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
+
+ cpulabel= widget({ type = "textbox" })
+ cpulabel.text='CPU: '
+ --
+ mycairograph=blingbling.classical_graph.new()
+ mycairograph:set_height(18)
+ mycairograph:set_width(360)
+ mycairograph:set_tiles_color("#00000022")
+ mycairograph:set_show_text(true)
+ mycairograph:set_label("Load: $percent %")
+ --
+ --bind top popup on the graph
+ blingbling.popups.htop(mycairograph.widget,
+       { title_color =beautiful.notify_font_color_1, 
+          user_color= beautiful.notify_font_color_2, 
+          root_color=beautiful.notify_font_color_3, 
+          terminal = "urxvt"})
+vicious.register(mycairograph, vicious.widgets.cpu,'$1',2)
+ --
+ memwidget=blingbling.classical_graph.new()
+ memwidget:set_height(18)
+ memwidget:set_width(200)
+ memwidget:set_tiles_color("#00000022")
+ memwidget:set_show_text(true)
+ vicious.register(memwidget, vicious.widgets.mem, '$2', 2)
+ --
+ mycore1=blingbling.progress_graph.new()
+ mycore1:set_height(18)
+ mycore1:set_width(6)
+ mycore1:set_filled(true)
+ mycore1:set_h_margin(1)
+ mycore1:set_filled_color("#00000033")
+ vicious.register(mycore1, vicious.widgets.cpu, "$2")
+ -- 
+ mycore2=blingbling.progress_graph.new()
+ --
+ --
+ mycore4=blingbling.progress_graph.new()
+ --
+ --
+ memlabel= widget({ type = "textbox" })
+ memlabel.text='MEM: '
+ memwidget=blingbling.classical_graph.new()
+ memwidget:set_height(18)
+ memwidget:set_width(200)
+ memwidget:set_tiles_color("#00000022")
+ memwidget:set_show_text(true)
+ vicious.register(memwidget, vicious.widgets.mem, '$2', 2)
+ --
+ netwidget = widget({ type = "textbox", name = "netwidget" })
+ netwidget.text='NET:'
+ --bind nestat popup on textbox 
+ blingbling.popups.netstat(netwidget,{ title_color = beautiful.notify_font_color_1, established_color= beautiful.notify_font_color_3, listen_color=beautiful.notify_font_color_2})
+--
+ my_net=blingbling.net.new()
+ my_net:set_height(18)
+ --activate popup with ip informations on the net widget
+ my_net:set_ippopup()
+ my_net:set_show_text(true)
+ my_net:set_v_margin(3)
+
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
@@ -137,14 +215,16 @@ for s = 1, screen.count() do
     mywibox[s].widgets = {
         {
             mylauncher,
-            mytaglist[s],
+			
+			mytaglist[s],
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-        mytextclock,
+		mytextclock,
 		volume_widget,
-        s == 1 and mysystray or nil,
+		mycairograph,
+		s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft,
     }
@@ -387,3 +467,6 @@ naughty.config.presets.normal.border_color     = '#535d6c'
 --naughty.config.presets.normal.border_color     = beautiful.border_focus or '#535d6c'
 naughty.config.default_preset.border_width     = 1
 naughty.config.default_preset.hover_timeout    = nil
+
+
+

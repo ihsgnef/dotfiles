@@ -1,8 +1,8 @@
 set gfn=YaHei\ Consolas\ Hybrid\ 10
 "set gfn=Source\ Code\ Pro\ 9
-colo codeschool
 syntax enable
-
+set background=light
+colorscheme codeschool
 if(has("win32") || has("win95") || has("win64") || has("win16"))
     let g:vimrc_iswindows=1
 else
