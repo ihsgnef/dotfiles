@@ -18,7 +18,7 @@ require("debian.menu")
 beautiful.init("/usr/share/awesome/themes/bamboo/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
+terminal = "gnome-terminal"
 --editor = os.getenv("EDITOR") or "editor"
 editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
@@ -210,7 +210,7 @@ for s = 1, screen.count() do
                                           end, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s })
+    mywibox[s] = awful.wibox({ position = "bottom", screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -223,7 +223,7 @@ for s = 1, screen.count() do
         mylayoutbox[s],
 		mytextclock,
 		volume_widget,
-		mycairograph,
+		-- mycairograph,
 		s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft,
