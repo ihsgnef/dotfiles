@@ -123,7 +123,7 @@ tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     --tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8 }, s, layouts[1])
-	tags[s] = awful.tag({ "web", "term", "vim", "vim", "pdf", "file", "misc", "win" }, s, layouts[1])
+	tags[s] = awful.tag({ "web", "term", "vim", "emacs", "pdf", "file", "misc", "win" }, s, layouts[1])
 end
 -- }}}
 
@@ -247,9 +247,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-       awful.util.spawn("amixer set Master 9%+") end),
+       awful.util.spawn("amixer set Master 5%+") end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-       awful.util.spawn("amixer set Master 9%-") end),
+       awful.util.spawn("amixer set Master 5%-") end),
     awful.key({ }, "XF86AudioMute", function ()
        awful.util.spawn("amixer sset Master toggle") end),
     awful.key({ modkey,           }, "j",

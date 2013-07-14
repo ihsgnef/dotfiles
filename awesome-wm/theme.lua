@@ -20,7 +20,7 @@ if not awful.util.file_readable(themes .. themename .. "/theme.lua") then
 end
 themedir      = themes .. themename
 
-wallpaper1    = themedir .. "/gun.jpg"
+wallpaper1    = themedir .. "/mari-0.jpg"
 
 wpscript      = home .. "/.wallpaper"
 
@@ -55,9 +55,9 @@ theme.bg_urgent = "#34353488"
 -- }}}
 
 -- {{{ Borders
-theme.border_width  = "1"
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_width  = "2"
+theme.border_normal = "#194040"
+theme.border_focus  = "#CC0000"
 theme.border_marked = "#91231c"
 
 --theme.border_width  = "1"
