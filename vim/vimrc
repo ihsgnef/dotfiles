@@ -1,8 +1,8 @@
 set gfn=YaHei\ Consolas\ Hybrid\ 10
 "set gfn=Source\ Code\ Pro\ 9
-colo codeschool
 syntax enable
-
+set background=light
+colorscheme slate
 if(has("win32") || has("win95") || has("win64") || has("win16"))
     let g:vimrc_iswindows=1
 else
@@ -13,15 +13,19 @@ autocmd BufEnter * lcd %:p:h
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 " 快捷键  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-:map <F9>  :!g++ -ggdb3 % -o %<<CR>
+:map <F9> :!g++ -ggdb3 % -o %<<CR>
 :map <F11> :!pdflatex %<.tex<CR>
 :map <F10> :! ./%<<CR>
-:map <F1> :w<CR>
-:map <F2> :w<CR>
+:map <F3>  :NERDTreeToggle<CR>
 :map <C-c> :!clear<CR>
-:map <F6> :tabprevious<CR>
-:map <F7> :tabnew<CR>
-:map <F8> :tabnext<CR>
+:map <C-w> :tabc<CR>
+:map <C-t> :tabnew<CR>
+:map <C-S-tab> :tabprevious<CR>
+:map <C-tab> :tabnext<CR>
+:map <C-Right>:vertical resize -2<CR>
+:map <C-Left> :vertical resize +2<CR>
+:map <C-Down>:resize +2<CR>
+:map <C-Up>  :vertical resize -2<CR>
 "复制粘贴控制 
 vmap <C-c> "+y 
 vmap <C-x> "+c 
@@ -149,6 +153,8 @@ set foldenable
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 set guioptions-=T
+set guioptions-=L
+set guioptions-=b
 set guioptions-=m
 set guioptions-=r
 "不要使用vi的键盘模式，而是vim自己的 

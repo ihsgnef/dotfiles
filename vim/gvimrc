@@ -2,7 +2,7 @@ set gfn=YaHei\ Consolas\ Hybrid\ 10
 "set gfn=Source\ Code\ Pro\ 9
 syntax enable
 set background=light
-colorscheme codeschool
+colorscheme slate
 if(has("win32") || has("win95") || has("win64") || has("win16"))
     let g:vimrc_iswindows=1
 else
@@ -16,12 +16,12 @@ autocmd BufEnter * lcd %:p:h
 :map <F9> :!g++ -ggdb3 % -o %<<CR>
 :map <F11> :!pdflatex %<.tex<CR>
 :map <F10> :! ./%<<CR>
-:map <F2>  :NERDTreeToggle<CR>
+:map <F3>  :NERDTreeToggle<CR>
 :map <C-c> :!clear<CR>
-:map <C-q> :tabc<CR>
+:map <C-w> :tabc<CR>
 :map <C-t> :tabnew<CR>
-:map <C-j> :tabprevious<CR>
-:map <C-k> :tabnext<CR>
+:map <C-S-tab> :tabprevious<CR>
+:map <C-tab> :tabnext<CR>
 :map <C-Right>:vertical resize -2<CR>
 :map <C-Left> :vertical resize +2<CR>
 :map <C-Down>:resize +2<CR>
