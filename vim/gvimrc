@@ -16,12 +16,16 @@ autocmd BufEnter * lcd %:p:h
 :map <F9> :!g++ -ggdb3 % -o %<<CR>
 :map <F11> :!pdflatex %<.tex<CR>
 :map <F10> :! ./%<<CR>
-:map <F1> :w<CR>
-:map <F2> :w<CR>
+:map <F2>  :NERDTreeToggle<CR>
 :map <C-c> :!clear<CR>
-:map <F6> :tabprevious<CR>
-:map <F7> :tabnew<CR>
-:map <F8> :tabnext<CR>
+:map <C-q> :tabc<CR>
+:map <C-t> :tabnew<CR>
+:map <C-j> :tabprevious<CR>
+:map <C-k> :tabnext<CR>
+:map <C-Right>:vertical resize -2<CR>
+:map <C-Left> :vertical resize +2<CR>
+:map <C-Down>:resize +2<CR>
+:map <C-Up>  :vertical resize -2<CR>
 "复制粘贴控制 
 vmap <C-c> "+y 
 vmap <C-x> "+c 
