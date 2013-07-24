@@ -18,10 +18,11 @@ autocmd BufEnter * lcd %:p:h
 :map <F10> :! ./%<<CR>
 :map <F3>  :NERDTreeToggle<CR>
 :map <C-c> :!clear<CR>
-:map <C-w> :tabc<CR>
+:map <C-q> :tabc<CR>
 :map <C-t> :tabnew<CR>
-:map <C-S-tab> :tabprevious<CR>
+:map <C-j> :tabprevious<CR>
 :map <C-tab> :tabnext<CR>
+:map <C-k> :tabnext<CR>
 :map <C-Right>:vertical resize -2<CR>
 :map <C-Left> :vertical resize +2<CR>
 :map <C-Down>:resize +2<CR>
