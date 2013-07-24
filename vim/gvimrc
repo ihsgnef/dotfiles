@@ -149,6 +149,8 @@ set foldenable
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 set guioptions-=T
+set guioptions-=L
+set guioptions-=b
 set guioptions-=m
 set guioptions-=r
 "不要使用vi的键盘模式，而是vim自己的 

@@ -20,7 +20,7 @@ if not awful.util.file_readable(themes .. themename .. "/theme.lua") then
 end
 themedir      = themes .. themename
 
-wallpaper1    = themedir .. "/mari-0.jpg"
+wallpaper1    = themedir .. "/spacemountains.jpg"
 
 wpscript      = home .. "/.wallpaper"
 

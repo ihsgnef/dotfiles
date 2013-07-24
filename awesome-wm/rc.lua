@@ -18,7 +18,7 @@ require("debian.menu")
 beautiful.init("/usr/share/awesome/themes/bamboo/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "xfce4-terminal"
 --editor = os.getenv("EDITOR") or "editor"
 editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
@@ -122,8 +122,8 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    --tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8 }, s, layouts[1])
-	tags[s] = awful.tag({ "web", "term", "vim", "emacs", "pdf", "file", "misc", "win" }, s, layouts[1])
+    --tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6}, s, layouts[1])
+	tags[s] = awful.tag({ "1.web", "2.term", "3.vim", "4.pdf", "5.file", "6.win" }, s, layouts[1])
 end
 -- }}}
 
