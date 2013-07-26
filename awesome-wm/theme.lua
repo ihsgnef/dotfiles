@@ -21,6 +21,7 @@ end
 themedir      = themes .. themename
 
 wallpaper1    = themedir .. "/spacemountains.jpg"
+-- wallpaper1    = themedir .. "/spacemountains.jpg"
 
 wpscript      = home .. "/.wallpaper"
 

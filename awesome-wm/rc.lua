@@ -18,7 +18,7 @@ require("debian.menu")
 beautiful.init("/usr/share/awesome/themes/bamboo/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
+terminal = "konsole"
 --editor = os.getenv("EDITOR") or "editor"
 editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
