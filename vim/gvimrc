@@ -2,7 +2,7 @@ set gfn=YaHei\ Consolas\ Hybrid\ 10
 "set gfn=Source\ Code\ Pro\ 9
 syntax enable
 set background=light
-colorscheme wombat
+colorscheme wombat256
 if(has("win32") || has("win95") || has("win64") || has("win16"))
     let g:vimrc_iswindows=1
 else
