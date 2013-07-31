@@ -1,6 +1,6 @@
 "set gfn=YaHei\ Consolas\ Hybrid\ 10
 "set gfn=Source\ Code\ Pro\ 9
-set gfn=inconsolata\ 11
+set gfn=inconsolata\ 12
 syntax enable
 "set background=light
 colorscheme wombat256

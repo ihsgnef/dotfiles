@@ -445,7 +445,7 @@ awful.util.spawn_with_shell("pgrep nm-applet > /dev/null || nm-applet")
 awful.util.spawn_with_shell("xfce4-power-manager") 
 awful.util.spawn_with_shell("xmodmap .xmodmaprc") 
 awful.util.spawn_with_shell("gnome-settings-daemon") 
-awful.util.spawn_with_shell("pgreap xfce4-taskmanager > /dev/null || xfce4-taskmanager") 
+--awful.util.spawn_with_shell("pgreap xfce4-taskmanager > /dev/null || xfce4-taskmanager") 
 -- awful.util.spawn_with_shell("xcompmgr -cfF") 
 --
 -- naughty config
