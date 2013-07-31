@@ -1,5 +1,6 @@
-set gfn=YaHei\ Consolas\ Hybrid\ 10
+"set gfn=YaHei\ Consolas\ Hybrid\ 10
 "set gfn=Source\ Code\ Pro\ 9
+set gfn=inconsolata\ 11
 syntax enable
 "set background=light
 colorscheme wombat256
@@ -15,6 +16,8 @@ autocmd BufEnter * lcd %:p:h
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 :map <F9> :!g++ -ggdb3 % -o %<<CR>
 :map <F11> :!pdflatex %<.tex<CR>
+:map <F12> :!guile %<.scm<CR>
+:map <C-F12> :!guile -l %<.scm<CR>
 :map <F10> :! ./%<<CR>
 :map <F3>  :NERDTreeToggle<CR>
 :map <C-c> :!clear<CR>
@@ -133,7 +136,7 @@ set autoindent
 " 为C程序提供自动缩进  
 set smartindent  
 " 使用C样式的缩进  
-set cindent  
+" set cindent  
 " 制表符为4  
 set tabstop=4  
 " 统一缩进为4  
