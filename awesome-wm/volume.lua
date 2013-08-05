@@ -1,4 +1,4 @@
-volume_widget = widget({ type = "textbox", name = "tb_volume",
+ volume_widget = widget({ type = "textbox", name = "tb_volume",
                              align = "right" })
 
     function update_volume(widget)

@@ -56,9 +56,9 @@ theme.bg_urgent = "#34353488"
 -- }}}
 
 -- {{{ Borders
-theme.border_width  = "2"
+theme.border_width  = "1"
 theme.border_normal = "#194040"
-theme.border_focus  = "#CC0000"
+theme.border_focus  = "#707070"
 theme.border_marked = "#91231c"
 
 --theme.border_width  = "1"
@@ -140,7 +140,7 @@ theme.layout_fullscreen = themedir .. "/layouts/fullscreen.png"
 theme.layout_magnifier  = themedir .. "/layouts/magnifier.png"
 theme.layout_floating   = themedir .. "/layouts/floating.png"
 -- }}}
-theme.awesome_icon = themedir .. "/logo20.png"
+theme.awesome_icon = "/usr/share/awesome/icons/archstart/logo20.png"
 
 -- {{{ Titlebar
 theme.titlebar_close_button_focus  = themedir .. "/titlebar/close_focus.png"

@@ -168,7 +168,7 @@ set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "auto template
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:template_load = 1
+let g:template_load = 0
 let g:template_tags_replacing = 1
 let g:T_AUTHOR = "fs"
 let g:T_AUTHOR_EMAIL = "sjtu_fs@outlook.com"
