@@ -15,10 +15,10 @@ require("debian.menu")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/bamboo/theme.lua")
+beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "konsole"
+terminal = "xfce4-terminal"
 --editor = os.getenv("EDITOR") or "editor"
 editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
@@ -123,7 +123,7 @@ tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     --tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6}, s, layouts[1])
-	tags[s] = awful.tag({ "1.web", "2.term", "3.vim", "4.pdf", "5.file", "6.win" }, s, layouts[1])
+	tags[s] = awful.tag({ " web ", " term ", " vim ", " pdf ", " file ", " win " }, s, layouts[1])
 end
 -- }}}
 
@@ -215,7 +215,7 @@ for s = 1, screen.count() do
     mywibox[s].widgets = {
         {
             mylauncher,
-			
+
 			mytaglist[s],
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
@@ -468,6 +468,3 @@ naughty.config.presets.normal.border_color     = '#535d6c'
 --naughty.config.presets.normal.border_color     = beautiful.border_focus or '#535d6c'
 naughty.config.default_preset.border_width     = 1
 naughty.config.default_preset.hover_timeout    = nil
-
-
-

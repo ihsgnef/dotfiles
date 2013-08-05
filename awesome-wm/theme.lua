@@ -42,7 +42,7 @@ end
 --}}}
 
 -- {{{ Styles
-theme.font      = "sans 8"
+theme.font      = "charter 8"
 
 -- {{{ Colors
 theme.fg_normal = "#ffffff"
