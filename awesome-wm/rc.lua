@@ -3,13 +3,12 @@ vicicous = require("vicious")
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
-require("volume")
+-- require("volume")
 require("blingbling")
 -- Theme handling library
 require("beautiful")
 -- Notification library
 require("naughty")
-
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -18,16 +17,12 @@ require("debian.menu")
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
+terminal = "gnome-terminal"
 --editor = os.getenv("EDITOR") or "editor"
 editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 
@@ -85,6 +80,7 @@ layouts =
 	awful.layout.suit.fair,
 	awful.layout.suit.max,
 	awful.layout.suit.max.fullscreen,
+	awful.layout.suit.floating,
 }
 -- }}}
 
@@ -93,8 +89,8 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
 	-- Each screen has its own tag table.
-	--tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6}, s, layouts[1])
-	tags[s] = awful.tag({ " web ", " term ", " vim ", " pdf ", " file ", " win " }, s, layouts[1])
+	--tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7}, s, layouts[1])
+	tags[s] = awful.tag({ " web ", " term ", " vim ", " pdf ", " misc ", " file ", " win " }, s, layouts[1])
 end
 -- }}}
 
@@ -179,12 +175,11 @@ for s = 1, screen.count() do
 	end, mytasklist.buttons)
 
 	-- Create the wibox
-	mywibox[s] = awful.wibox({ position = "bottom", screen = s })
+	mywibox[s] = awful.wibox({ position = "top", screen = s })
 	-- Add widgets to the wibox - order matters
 	mywibox[s].widgets = {
 		{
 			mylauncher,
-
 			mytaglist[s],
 			mypromptbox[s],
 			layout = awful.widget.layout.horizontal.leftright
@@ -192,16 +187,12 @@ for s = 1, screen.count() do
 		mylayoutbox[s],
 		mytextclock,
 		tb_volume,
-		-- volume_widget,
-		-- mycairograph,
 		s == 1 and mysystray or nil,
 		mytasklist[s],
 		layout = awful.widget.layout.horizontal.rightleft,
 	}
 end
 -- }}}
-
-
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
@@ -274,7 +265,7 @@ awful.key({ }, "XF86AudioRaiseVolume", function ()
 				awful.util.eval, nil,
 				awful.util.getdir("cache") .. "/history_eval")
 			end),
-
+			--sdcv 
 			awful.key({ modkey }, "t",
 			function ()
 				info = true
