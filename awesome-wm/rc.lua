@@ -1,31 +1,20 @@
 vicicous = require("vicious")
--- Standard awesome library
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
--- require("volume")
 require("blingbling")
--- Theme handling library
 require("beautiful")
--- Notification library
 require("naughty")
--- Load Debian menu entries
 require("debian.menu")
 
 -- {{{ Variable definitions
--- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
--- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal"
---editor = os.getenv("EDITOR") or "editor"
 editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
 
--- Default modkey.
 modkey = "Mod4"
-
-
 
 -- {{{2 Volume Control
 volume_cardid  = 0
