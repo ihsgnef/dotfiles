@@ -7,10 +7,10 @@ theme.bg_focus      = "#353535"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#101010"
 
-theme.fg_normal     = "#666666"
+theme.fg_normal     = "#777777"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#444444"
+theme.fg_minimize   = "#555555"
 
 theme.border_width  = "1"
 theme.border_normal = "#000000"
@@ -19,8 +19,8 @@ theme.border_focus  = "#707070"
 theme.border_marked = "#91231c"
 
 -- You can use your own command to set your wallpaper
-theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/backgrounds/blackbox.jpg" }
--- theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/backgrounds/wallpaper-2935650.jpg" }
+theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/backgrounds/spacemountains.jpg" }
+-- theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/backgrounds/wallpaper-2945390.jpg" }
 
 -- There are other variable sets
 -- overriding the default one when
