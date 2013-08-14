@@ -15,9 +15,7 @@ autocmd BufEnter * lcd %:p:h
 " 快捷键  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 :map <F9> :!g++ -ggdb3 % -o %<<CR>
-:map <F11> :!pdflatex %<.tex<CR>
-:map <F12> :!guile %<.scm<CR>
-:map <C-F12> :!guile -l %<.scm<CR>
+:map <F12> :!pdflatex %<.tex<CR>
 :map <F10> :! ./%<<CR>
 :map <F3>  :NERDTreeToggle<CR>
 :map <C-c> :!clear<CR>
