@@ -20,7 +20,7 @@ theme.border_marked = "#91231c"
 
 -- You can use your own command to set your wallpaper
 theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/backgrounds/spacemountains.jpg" }
--- theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/backgrounds/07.png" }
+-- theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/backgrounds/09.jpg" }
 
 -- There are other variable sets
 -- overriding the default one when
