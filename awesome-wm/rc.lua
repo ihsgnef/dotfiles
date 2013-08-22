@@ -10,7 +10,7 @@ require("debian.menu")
 -- {{{ Variable definitions
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
-terminal = "gnome-terminal"
+terminal = "xfce4-terminal"
 editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -79,8 +79,8 @@ tags = {}
 for s = 1, screen.count() do
 	-- Each screen has its own tag table.
 	--tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7}, s, layouts[1])
-	tags[s] = awful.tag({ " 1 web ", " 2 term ", " 3 vim", " 4 android ", " 5 emu ", " 6 book ", 
-	" 7 file ", " 8 win " }, s, layouts[1])
+	tags[s] = awful.tag({ " 1 web ", " 2 term ", " 3 vim", " 4 android ", " 5 misc ", 
+	" 6 file ", " 7 win " }, s, layouts[1])
 end
 -- }}}
 
