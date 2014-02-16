@@ -1,8 +1,5 @@
-"set gfn=YaHei\ Consolas\ Hybrid\ 10
-"set gfn=Source\ Code\ Pro\ 9
 set gfn=inconsolata\ 12
 syntax enable
-"set background=light
 colorscheme wombat256
 if(has("win32") || has("win95") || has("win64") || has("win16"))
     let g:vimrc_iswindows=1
@@ -67,8 +64,8 @@ set iskeyword+=_,$,@,%,#,-
 " 语法高亮 
 syntax on 
 " 高亮字符，让其不受100列限制 
-:highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white 
-:match OverLength '\%101v.*' 
+" :highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white 
+":match OverLength '\%101v.*' 
 " 状态行颜色 
 highlight StatusLine guifg=SlateBlue guibg=Gray 
 highlight StatusLineNC guifg=Gray guibg=White 
@@ -142,6 +139,8 @@ set softtabstop=4
 set shiftwidth=4  
 " 不要用空格代替制表符  
 set noexpandtab  
+" 设置换行宽度
+" set textwidth=70
 " 不要换行  
 set wrap  
 " 在行和段开始处使用制表符  
@@ -162,13 +161,3 @@ set guioptions-=m
 set guioptions-=r
 "不要使用vi的键盘模式，而是vim自己的 
 set nocompatible 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"auto template
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:template_load = 1
-let g:template_tags_replacing = 1
-let g:T_AUTHOR = "fs"
-let g:T_AUTHOR_EMAIL = "sjtu_fs@outlook.com"
-let g:T_AUTHOR_WEBSITE = "www.github.com/sjtufs"
-let g:T_DATE_FORMAT = "%c"
