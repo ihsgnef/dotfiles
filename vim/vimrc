@@ -12,8 +12,10 @@ autocmd BufEnter * lcd %:p:h
 " 快捷键  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 :map <F9> :!g++ -ggdb3 % -o %<<CR>
-:map <F12> :!pdflatex %<.tex<CR>
 :map <F10> :! ./%<<CR>
+:map <F7> :!javac %<CR>
+:map <F8> :!java %<<CR>
+:map <F12> :!pdflatex %<.tex<CR>
 :map <F3>  :NERDTreeToggle<CR>
 :map <C-c> :!clear<CR>
 :map <C-q> :tabc<CR>
@@ -138,7 +140,7 @@ set tabstop=4
 set softtabstop=4  
 set shiftwidth=4  
 " 不要用空格代替制表符  
-set noexpandtab  
+" set noexpandtab  
 " 设置换行宽度
 " set textwidth=70
 " 不要换行  
