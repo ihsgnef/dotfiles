@@ -60,6 +60,8 @@ set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 "显示设置  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+au BufRead,BufNewFile *.g set syntax=antlr3
+
 set t_Co=256 
 " 带有如下符号的单词不要被换行分割 
 set iskeyword+=_,$,@,%,#,- 

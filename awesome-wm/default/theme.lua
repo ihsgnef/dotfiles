@@ -2,15 +2,15 @@ theme = {}
 
 theme.font          = "sans 8"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#454545"
-theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
+theme.bg_normal     = "#22222210"
+theme.bg_focus      = "#00000070"
+theme.bg_urgent     = "#ff000030"
+theme.bg_minimize   = "#22222205"
 
 theme.fg_normal     = "#aaaaaa"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_minimize   = "#444444"
 
 theme.border_width  = "1"
 theme.border_normal = "#000000"

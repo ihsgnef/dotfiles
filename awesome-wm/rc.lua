@@ -57,7 +57,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ " web ", " term ", " edit ", " mist ", " file ", " win ", " " }, s, layouts[1])
+    tags[s] = awful.tag({ "1 web ", "2 term ", "3 code ",  "4 pdf ", "5 misc ", "6 win ", " " }, s, layouts[1])
 end
 -- }}}
 
@@ -407,8 +407,6 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- {{{ Autorun apps
 awful.util.spawn_with_shell("xfce4-power-manager")
-awful.util.spawn_with_shell("xmodmap .xmodmaprc")
 awful.util.spawn_with_shell("pgrep nm-applet > /dev/null || nm-applet")
 awful.util.spawn_with_shell("gnome-settings-daemon")
-awful.util.spawn_with_shell("xcompmgr -cF")
 -- }}}
