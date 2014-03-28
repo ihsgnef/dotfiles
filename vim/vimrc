@@ -1,6 +1,6 @@
-set gfn=inconsolata\ 12
+set gfn=Inconsolata\ 12
 syntax enable
-colorscheme wombat256
+colorscheme ir_black
 if(has("win32") || has("win95") || has("win64") || has("win16"))
     let g:vimrc_iswindows=1
 else
