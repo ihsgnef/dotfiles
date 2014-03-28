@@ -2,10 +2,10 @@ theme = {}
 
 theme.font          = "sans 8"
 
-theme.bg_normal     = "#22222210"
+theme.bg_normal     = "#22222270"
 theme.bg_focus      = "#00000070"
-theme.bg_urgent     = "#ff000030"
-theme.bg_minimize   = "#22222205"
+theme.bg_urgent     = "#ff000070"
+theme.bg_minimize   = "#22222270"
 
 theme.fg_normal     = "#aaaaaa"
 theme.fg_focus      = "#ffffff"
@@ -49,7 +49,7 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/backgrounds/10.jpg" }
+theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/backgrounds/08.jpg" }
 
 theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
 theme.layout_fairv = "/usr/share/awesome/themes/default/layouts/fairvw.png"
