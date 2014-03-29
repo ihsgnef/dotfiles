@@ -7,7 +7,7 @@ alias suspend='sudo pm-suspend'
 alias poweroff='sudo poweroff'
 alias ta='xfce4-taskmanager'
 
-alias fk='xmodmap ~/.xmodmaprc && nohup xcompmgr -cfF &'
+alias fk='xmodmap ~/.xmodmaprc && nohup xcompmgr -c -f -C -F -S -r10 -D4 -t 50 &'
 
 alias ppp='make html && make publish && cd output/ && gup && cx'
 alias gup='git add -A && git commit -a -m 'update' && git push origin master'
