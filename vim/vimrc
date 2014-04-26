@@ -1,40 +1,30 @@
-set gfn=Inconsolata\ 12
-syntax enable
-colorscheme ir_black
-if(has("win32") || has("win95") || has("win64") || has("win16"))
-    let g:vimrc_iswindows=1
-else
-    let g:vimrc_iswindows=0
-endif
-autocmd BufEnter * lcd %:p:h
+colorscheme wombat256mod
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+" Vundle
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+set nocompatible               " be iMproved
+filetype off                   " required!
+ 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+ 
+Bundle 'gmarik/vundle'
+Bundle 'bling/vim-airline'
+Bundle 'The-NERD-tree'
+Bundle 'taglist.vim'
+Bundle 'OmniCppComplete'
+
+filetype plugin indent on     " required!
+
 " 快捷键  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-:map <F9> :!g++ -ggdb3 % -o %<<CR>
-:map <F10> :! ./%<<CR>
-:map <F7> :!javac %<CR>
-:map <F8> :!java %<<CR>
-:map <F12> :!pdflatex %<.tex<CR>
-:map <F3>  :NERDTreeToggle<CR>
 :map <C-c> :!clear<CR>
 :map <C-q> :tabc<CR>
 :map <C-t> :tabnew<CR>
 :map <C-j> :tabprevious<CR>
 :map <C-tab> :tabnext<CR>
 :map <C-k> :tabnext<CR>
-:map <C-Right>:vertical resize -2<CR>
-:map <C-Left> :vertical resize +2<CR>
-:map <C-Down>:resize +2<CR>
-:map <C-Up>  :vertical resize -2<CR>
-"复制粘贴控制 
-vmap <C-c> "+y 
-vmap <C-x> "+c 
-vmap <C-d> c<ESC>"+p 
-imap <C-d> <ESC>"+pa 
-
  
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 " 文件设置  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " 不要备份文件（根据自己需要取舍） 
@@ -42,12 +32,10 @@ set nobackup
 " 不要生成swap文件，当buffer被丢弃的时候隐藏它 
 setlocal noswapfile 
 "set bufhidden=hide 
- " history文件中需要记录的行数 
+" history文件中需要记录的行数 
 set history=100 
 " 在处理未保存或只读文件的时候，弹出确认 
 set confirm 
-" 侦测文件类型 
-filetype on 
 " 载入文件类型插件 
 filetype plugin on 
 " 为特定文件类型载入相关缩进文件 
@@ -57,7 +45,6 @@ set autochdir
 set ffs=unix,dos,mac " favor unix ff, which behaves good under bot Winz & Linux  
 set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 "显示设置  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 au BufRead,BufNewFile *.g set syntax=antlr3
@@ -67,12 +54,6 @@ set t_Co=256
 set iskeyword+=_,$,@,%,#,- 
 " 语法高亮 
 syntax on 
-" 高亮字符，让其不受100列限制 
-" :highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white 
-":match OverLength '\%101v.*' 
-" 状态行颜色 
-highlight StatusLine guifg=SlateBlue guibg=Gray 
-highlight StatusLineNC guifg=Gray guibg=White 
 " 字符间插入的像素行数目  
 set linespace=0  
 " 显示行号  
@@ -104,8 +85,9 @@ set report=0
 set noerrorbells  
 " 在被分割的窗口间显示空白，便于阅读  
 set fillchars=vert:\ ,stl:\ ,stlnc:\  
-  
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+
+set fdm=syntax
+
 " 搜索和匹配 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 " 高亮显示匹配的括号  
@@ -125,7 +107,6 @@ set scrolloff=3
 " 不要闪烁  
 set novisualbell  
   
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " 文本格式和排版 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 " 自动格式化  
@@ -149,19 +130,16 @@ set shiftwidth=4
 set wrap  
 " 在行和段开始处使用制表符  
 set smarttab  
- 
+
 set backspace=indent,eol,start
  
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " 其它设定 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 set foldenable  
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
-set guioptions-=T
-set guioptions-=L
-set guioptions-=b
-set guioptions-=m
-set guioptions-=r
-"不要使用vi的键盘模式，而是vim自己的 
-set nocompatible 
+
+" airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'luna'
