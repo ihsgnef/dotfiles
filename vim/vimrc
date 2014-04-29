@@ -1,9 +1,10 @@
-colorscheme wombat256mod
+" colorscheme default
+colorscheme fswombat
 
 " Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible
+filetype off
  
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -11,10 +12,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'The-NERD-tree'
-Bundle 'taglist.vim'
 Bundle 'OmniCppComplete'
 
-filetype plugin indent on     " required!
+filetype plugin indent on
 
 " Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -52,10 +52,9 @@ syntax on
 set linespace=0  
 set nu  
 set wildmenu  
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l/%L,%v][%p%%]\ %{strftime(\"%y.%m.%d\ -\ %H:%M\")}  
 set laststatus=2  
-set ruler  
-set rulerformat=%20(%2*%<%f%=\ %m%r\ %3l\ %c\ %p%%%)  
+set ruler
+set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 set showcmd  
 set cmdheight=1  
 set whichwrap+=<,>,h,l  
@@ -75,7 +74,7 @@ set ignorecase
 set nohlsearch  
 set incsearch  
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$  
-set scrolloff=400
+set scrolloff=20
 set novisualbell  
   
 " Formatting
@@ -99,3 +98,5 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_theme = 'luna'
+let g:airline#extensions#whitespace#enabled = 0
+
