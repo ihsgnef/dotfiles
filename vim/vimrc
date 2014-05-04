@@ -12,24 +12,46 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'The-NERD-tree'
-Bundle 'OmniCppComplete'
+Bundle 'ctags.vim'
+Bundle 'tagbar'
 
 filetype plugin indent on
 
 " Key Mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :map <C-c> :!clear<CR>
 :map <C-q> :tabc<CR>
-:map <C-t> :tabnew<CR>
-:map <C-j> :tabprevious<CR>
+:map <C-t> :TagbarToggle<CR>
 :map <C-tab> :tabnext<CR>
-:map <C-k> :tabnext<CR>
+:map <F9> :!g++ -ggdb3 % -o %<<CR>
+:map <F10> :! ./%<<CR>
+:nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+:imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+:nmap <F2> :.w !pbcopy<CR><CR>
+:vmap <F2> :w !pbcopy<CR><CR>
 :nnoremap n nzz
 :nnoremap N Nzz
 :nnoremap * *zz
 :nnoremap # #zz
 :nnoremap g* g*zz
 :nnoremap g# g#zz
+:nnoremap d "_d
+:nnoremap ,p :put " <CR>
+:noremap <Up> gk
+:noremap! <Up> <C-O>gk
+:noremap <Down> gj
+:noremap! <Down> <C-O>gj
+:noremap k gk
+:inoremap <M-k> <UP>
+:noremap j gj
+:inoremap <M-j> <DOWN>
+" for eclim
+:inoremap <C-l> <C-x><C-u>
+
+" autocomplete abbreviation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+iab #i #include
+iab im import
 
 " File Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -94,6 +116,7 @@ set backspace=indent,eol,start
 set foldenable  
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 
 " airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
