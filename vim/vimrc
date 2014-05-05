@@ -23,7 +23,7 @@ filetype plugin indent on
 :map <C-q> :tabc<CR>
 :map <C-t> :TagbarToggle<CR>
 :map <C-tab> :tabnext<CR>
-:map <F9> :!g++ -ggdb3 % -o %<<CR>
+:map <F9> :!g++ % -o %<<CR>
 :map <F10> :! ./%<<CR>
 :nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 :imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
@@ -52,6 +52,12 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 iab #i #include
 iab im import
+iab pu public
+iab pri private
+iab pro protected
+iab cl class 
+iab ab abstract
+iab re return
 
 " File Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -67,7 +73,7 @@ set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard
 " Display Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 au BufRead,BufNewFile *.g set syntax=antlr3
-
+set title
 set t_Co=256 
 set iskeyword+=_,$,@,%,#,- 
 syntax on 
@@ -96,7 +102,7 @@ set ignorecase
 set nohlsearch  
 set incsearch  
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$  
-set scrolloff=20
+set scrolloff=50
 set novisualbell  
   
 " Formatting
@@ -122,4 +128,8 @@ let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_theme = 'luna'
 let g:airline#extensions#whitespace#enabled = 0
+
+" eclim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set completeopt-=preview
 
