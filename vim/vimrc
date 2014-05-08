@@ -123,6 +123,7 @@ set foldenable
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+let g:tagbar_left = 1
 
 " airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
