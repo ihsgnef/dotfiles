@@ -25,10 +25,10 @@ filetype plugin indent on
 :map <C-tab> :tabnext<CR>
 :map <F9> :!g++ % -o %<<CR>
 :map <F10> :! ./%<<CR>
-:nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-:imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-:nmap <F2> :.w !pbcopy<CR><CR>
-:vmap <F2> :w !pbcopy<CR><CR>
+:nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+:imap <F2> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+:nmap <F1> :.w !pbcopy<CR><CR>
+:vmap <F1> :w !pbcopy<CR><CR>
 :nnoremap n nzz
 :nnoremap N Nzz
 :nnoremap * *zz
@@ -37,14 +37,10 @@ filetype plugin indent on
 :nnoremap g# g#zz
 :nnoremap d "_d
 :nnoremap ,p :put " <CR>
-:noremap <Up> gk
-:noremap! <Up> <C-O>gk
-:noremap <Down> gj
-:noremap! <Down> <C-O>gj
 :noremap k gk
-:inoremap <M-k> <UP>
+:inoremap <M-k> <C-O>gk
 :noremap j gj
-:inoremap <M-j> <DOWN>
+:inoremap <M-j> <C-O>gj
 " for eclim
 :inoremap <C-l> <C-x><C-u>
 
@@ -75,6 +71,10 @@ set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard
 au BufRead,BufNewFile *.g set syntax=antlr3
 set title
 set t_Co=256 
+set encoding=utf-8
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
 set iskeyword+=_,$,@,%,#,- 
 syntax on 
 set linespace=0  
@@ -127,10 +127,14 @@ let g:tagbar_left = 1
 
 " airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme = 'luna'
+let g:airline_theme = 'tomorrow'
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = "fancy"
+"let g:airline#extensions#tabline#enabled = 1
 
 " eclim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set completeopt-=preview
+
 
