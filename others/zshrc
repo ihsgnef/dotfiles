@@ -17,8 +17,6 @@ source ~/.bashrc
 
 alias cx='cd ..'
 alias mint='ssh fs@10.211.55.10'
-alias ubuntu='ssh fs@172.16.145.128'
-alias thinkpad='ssh fs@10.184.141.181'
 alias antlr4='java -jar /usr/local/lib/antlr-4.0-complete.jar'
 alias grun='java org.antlr.v4.runtime.misc.TestRig'
 alias gitc='cp -R ~/workspace/compiler2014/* ~/Git/compiler2014/'
