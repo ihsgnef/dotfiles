@@ -14,6 +14,7 @@ Bundle 'bling/vim-airline'
 Bundle 'The-NERD-tree'
 Bundle 'ctags.vim'
 Bundle 'tagbar'
+Bundle 'fugitive.vim'
 
 filetype plugin indent on
 
