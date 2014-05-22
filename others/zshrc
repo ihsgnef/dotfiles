@@ -14,6 +14,7 @@ ZSH_THEME="intheloop"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.bashrc
+fortune | cowsay -e xx
 
 alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
 alias vmubuntu='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/Ubuntu12.04.vmwarevm/Ubuntu12.04.vmx nogui'
