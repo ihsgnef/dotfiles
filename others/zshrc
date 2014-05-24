@@ -17,12 +17,11 @@ source ~/.bashrc
 fortune | cowsay -e xx
 
 alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
-alias vmubuntu='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/Ubuntu12.04.vmwarevm/Ubuntu12.04.vmx nogui'
-alias vmabuntu='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/abuntu.vmwarevm/abuntu.vmx nogui'
+alias vm32='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/abuntu.vmwarevm/abuntu.vmx nogui'
+alias vm64='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/ubuntu64.vmwarevm/ubuntu64.vmx nogui'
 alias mint='ssh fs@10.211.55.10'
-alias xubuntu='ssh fs@172.16.145.132'
-alias ubuntu='ssh fs@172.16.145.137'
-alias abuntu='ssh fs@172.16.145.138'
+alias ubuntu32='ssh fs@172.16.145.144'
+alias ubuntu64='ssh fs@172.16.145.145'
 
 alias antlr4='java -jar /usr/local/lib/antlr-4.0-complete.jar'
 alias grun='java org.antlr.v4.runtime.misc.TestRig'
@@ -101,3 +100,7 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/us
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
+if [[ ! $TERM =~ screen ]]; then
+	    exec tmux
+fi
