@@ -45,10 +45,10 @@ filetype plugin indent on
 :nnoremap g# g#zz
 :nnoremap d "_d
 :nnoremap ,p :put " <CR>
-" :noremap k gk
-" :inoremap <M-k> <C-O>gk
-" :noremap j gj
-" :inoremap <M-j> <C-O>gj
+:noremap k gk
+:inoremap <M-k> <C-O>gk
+:noremap j gj
+:inoremap <M-j> <C-O>gj
 " for eclim
 " :inoremap <C-l> <C-x><C-u>
 
