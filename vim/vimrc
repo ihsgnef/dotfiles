@@ -142,10 +142,15 @@ let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = "fancy"
 "let g:airline#extensions#tabline#enabled = 1
 
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
+
 " eclim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set completeopt-=preview
 
 " jedi
-let g:jedi#completions_command = "<C-l>"
+let g:jedi#completions_command = "<M-p>"
+let g:jedi#popup_on_dot = 0
 autocmd FileType python setlocal completeopt-=preview

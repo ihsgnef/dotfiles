@@ -25,7 +25,8 @@ alias ubuntu64='ssh fs@172.16.145.145'
 
 alias antlr4='java -jar /usr/local/lib/antlr-4.0-complete.jar'
 alias grun='java org.antlr.v4.runtime.misc.TestRig'
-alias gitc='cp -R ~/workspace/compiler2014/* ~/Git/compiler2014/'
+# alias gitc='cp -R ~/workspace/compiler2014/* ~/Git/compiler2014/'
+alias nnn='ncmpc'
 
 alias grep='grep --color=auto'
 alias cx='cd ..'
@@ -82,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/texbin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/texbin:/Users/fs/Library/Python/2.7/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
