@@ -17,11 +17,9 @@ source ~/.bashrc
 fortune
 
 alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
-alias vm32='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/abuntu.vmwarevm/abuntu.vmx nogui'
-alias vm64='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/ubuntu64.vmwarevm/ubuntu64.vmx nogui'
+alias vmubuntu='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/abuntu.vmwarevm/abuntu.vmx nogui'
 alias mint='ssh fs@10.211.55.10'
-alias ubuntu32='ssh fs@172.16.145.153'
-alias ubuntu64='ssh fs@172.16.145.145'
+alias ubuntu='ssh fs@172.16.145.153'
 
 alias antlr4='java -jar /usr/local/lib/antlr-4.0-complete.jar'
 alias grun='java org.antlr.v4.runtime.misc.TestRig'
@@ -36,6 +34,7 @@ alias zzz='source ~/.zshrc'
 alias clk='tty-clock -sctDC 1'
 alias awd='ls -lghGFH'
 alias asd='cd'
+alias py='python'
 
 alias eclim='nohup /Applications/eclipse\ 2/eclimd -Dosgi.instance.area.default=/Users/fs/workspace &'
 alias eclimshutdown='/Applications/eclipse\ 2/eclim -command shutdown'
