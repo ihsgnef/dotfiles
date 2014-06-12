@@ -1,4 +1,9 @@
-colorscheme fswombat
+" colorscheme default
+colorscheme Tomorrow-Night
+set background=dark
+if $SHELL =~ 'bin/fish'
+	set shell=/bin/sh
+endif
 
 " Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -8,32 +13,38 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
  
-Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
-Bundle 'The-NERD-tree'
-Bundle 'ctags.vim'
-Bundle 'tagbar'
-Bundle 'fugitive.vim'
+Plugin 'gmarik/vundle'
+Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/powerline'
+Plugin 'The-NERD-tree'
+"Plugin 'ctags.vim'
+Plugin 'tagbar'
+"Plugin 'fugitive.vim'
+"Plugin 'davidhalter/jedi-vim'
 
 filetype plugin indent on
 
 " Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:map <C-c> :!clear<CR>
-:map <C-q> :tabc<CR>
-:map <C-t> :TagbarToggle<CR>
-:map <C-tab> :tabnext<CR>
-:map<F3> :!pdflatex %<CR>
-:map <F5> :ProjectRefresh<CR>
-:map <F6> :ProjectProblems<CR>
-:map <F7> :!java -classpath /Users/fs/workspace/compiler2014/lib/antlr-4.0-complete.jar:/Users/fs/workspace/compiler2014/bin compiler2014.main.Main > /Users/fs/Downloads/assem.s<CR>
-:map <F8> :Java<CR>
-:map <F9> :!gcc % -o %<<CR>
-:map <F10> :! ./%<<CR>
-:nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-:imap <F2> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 :nmap <F1> :.w !pbcopy<CR><CR>
 :vmap <F1> :w !pbcopy<CR><CR>
+:nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+:imap <F2> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+:map<F3> :!xelatex %<CR>
+:map<F4> :!python %<CR>
+:map <F5> :ProjectRefresh<CR>
+:map <F7> :!java -classpath /Users/fs/workspace/compiler2014/lib/antlr-4.0-complete.jar:/Users/fs/workspace/compiler2014/bin compiler2014.main.Main > /Users/fs/Downloads/assem.s<CR>
+:map <F9> :!g++ % -o %<<CR>
+:map <F10> :! ./%<<CR>
+
+:map <C-c> :!clear<CR>
+:map <C-i> :TagbarToggle<CR>
+:map <C-t> :NERDTree<CR>
+:map <C-h> <C-w>h
+:map <C-j> <C-w>j
+:map <C-k> <C-w>k
+:map <C-l> <C-w>l
+
 :nnoremap n nzz
 :nnoremap N Nzz
 :nnoremap * *zz
@@ -47,7 +58,7 @@ filetype plugin indent on
 :noremap j gj
 :inoremap <M-j> <C-O>gj
 " for eclim
-:inoremap <C-l> <C-x><C-u>
+" :inoremap <C-l> <C-x><C-u>
 
 " autocomplete abbreviation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -129,11 +140,20 @@ set foldenable
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-let g:tagbar_left = 1
+"let g:tagbar_left = 1
 
 " airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme = 'simple'
+let g:airline_theme = 'tomorrow'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = "fancy"
+
+" eclim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set completeopt-=preview
+
+" jedi
+let g:jedi#completions_command = "<M-p>"
+let g:jedi#popup_on_dot = 0
+autocmd FileType python setlocal completeopt-=preview
