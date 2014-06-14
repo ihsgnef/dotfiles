@@ -1,160 +1,121 @@
-" colorscheme default
-" colorscheme Tomorrow-Night
-colorscheme fswombat
-set background=dark
-if $SHELL =~ 'bin/fish'
-	set shell=/bin/sh
-endif
+set nocompatible    "Use vim flavour
+set backup backupdir=/home/ymf/.backup backupext=.bak    "Set up backup
 
-" Vundle
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-set nocompatible
-filetype off
- 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
- 
-Plugin 'gmarik/vundle'
-Plugin 'bling/vim-airline'
-Plugin 'Lokaltog/powerline'
-Plugin 'The-NERD-tree'
-"Plugin 'ctags.vim'
-Plugin 'tagbar'
-"Plugin 'fugitive.vim'
-"Plugin 'davidhalter/jedi-vim'
+set ruler wildmenu number "Set up layout
+set incsearch hlsearch  "Search options
+set formatoptions+=m
 
-filetype plugin indent on
+set expandtab smarttab
+set tabstop=4 shiftwidth=4
+"set textwidth=80
+"Tabs and indent
 
-" Key Mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:nmap <F1> :.w !pbcopy<CR><CR>
-:vmap <F1> :w !pbcopy<CR><CR>
-:nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-:imap <F2> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-:map<F3> :!xelatex %<CR>
-:map<F4> :!python %<CR>
-:map <F5> :ProjectRefresh<CR>
-:map <F7> :!java -classpath /Users/fs/workspace/compiler2014/lib/antlr-4.0-complete.jar:/Users/fs/workspace/compiler2014/bin compiler2014.main.Main > /Users/fs/Downloads/assem.s<CR>
-:map <F9> :!g++ % -o %<<CR>
-:map <F10> :! ./%<<CR>
+set smartindent 
+set cino=i-s
 
-:map <C-c> :!clear<CR>
-:map <C-i> :TagbarToggle<CR>
-:map <C-t> :NERDTree<CR>
-:map <C-h> <C-w>h
-:map <C-j> <C-w>j
-:map <C-k> <C-w>k
-:map <C-l> <C-w>l
+autocmd BufEnter * let b:did_ftplugin = 1
+filet plugin indent on
+"Code indentation
 
-:nnoremap n nzz
-:nnoremap N Nzz
-:nnoremap * *zz
-:nnoremap # #zz
-:nnoremap g* g*zz
-:nnoremap g# g#zz
-:nnoremap d "_d
-:nnoremap ,p :put " <CR>
-:noremap k gk
-:inoremap <M-k> <C-O>gk
-:noremap j gj
-:inoremap <M-j> <C-O>gj
-" for eclim
-" :inoremap <C-l> <C-x><C-u>
+set foldmethod=marker   "Code folding
 
-" autocomplete abbreviation
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-iab #i #include
-iab im import
-iab pu public
-iab pri private
-iab pro protected
-iab cl class 
-iab ab abstract
-iab re return
+"set cursorline cursorcolumn
+syntax on
+set t_Co=256
+colo fswombat
+"colo slate
+"Colors
 
-" File Settings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-set nobackup 
-setlocal noswapfile 
-set confirm 
-filetype plugin on 
-filetype indent on 
-set autochdir 
-set ffs=unix,dos,mac " favor unix ff, which behaves good under bot Winz & Linux  
-set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard 
+set fencs=utf-8,cp936,gb18030,gbk,big5,latin1
+set enc=utf-8
+"Encoding
 
-" Display Settings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-au BufRead,BufNewFile *.g set syntax=antlr3
-set title
-set t_Co=256 
-set encoding=utf-8
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
-set iskeyword+=_,$,@,%,#,- 
-syntax on 
-set linespace=0  
-set nu  
-set cursorline
-set wildmenu  
-set laststatus=2  
-set ruler
-set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
-set showcmd  
-set cmdheight=1  
-set whichwrap+=<,>,h,l  
-set mouse=a  
-set selection=exclusive  
-set selectmode=mouse,key  
-set shortmess=atI  
-set report=0  
-set noerrorbells  
-set fillchars=vert:\ ,stl:\ ,stlnc:\  
+set dictionary+=/usr/share/dict/words
 
-" Searching and Matching
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-set showmatch  
-set matchtime=5  
-set ignorecase  
-set nohlsearch  
-set incsearch  
-set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$  
-set scrolloff=50
-set novisualbell  
-  
-" Formatting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-set formatoptions=tcrqn  
-set autoindent  
-set smartindent  
-set tabstop=4  
-set softtabstop=4  
-set shiftwidth=4  
-set wrap  
-set smarttab  
-set backspace=indent,eol,start
- 
-" Others
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-set foldenable  
-set foldmethod=manual  
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-"let g:tagbar_left = 1
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
-" airline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme = 'tomorrow'
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 1
-let g:Powerline_symbols = "fancy"
+set laststatus=2
 
-" eclim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set completeopt-=preview
+function MakeShortcut(shortcut_dict) 
+    for a:ftype in keys(a:shortcut_dict)
+        let a:ftype_dict = a:shortcut_dict[a:ftype]
+        for a:key in keys(a:ftype_dict)
+            execute "autocmd filetype " . a:ftype . " map <buffer> " . 
+                        \ a:key . " :!sh -c '" . a:ftype_dict[a:key] . "' <CR>"
+        endfor
+    endfor
+endfunction
 
-" jedi
-let g:jedi#completions_command = "<M-p>"
-let g:jedi#popup_on_dot = 0
-autocmd FileType python setlocal completeopt-=preview
+let keymap_dict = {
+            \   'cpp' : 
+            \   {'<F9>' : 'g++ -o %< % -g -pg 
+            \               -Wall -Wextra -Wconversion -pedantic 
+            \               -Wno-long-long -DLOCAL_DEBUG; and size %<',
+            \    '<F8>' : 'gdb %<'}, 
+            \
+            \   'c' : 
+            \   {'<F9>' : 'gcc -o %< % -g -pg -std=c89  -ansi
+            \               -Wall -Wextra -Wconversion -pedantic 
+            \               -Wno-long-long -DLOCAL_DEBUG; and size %<',
+            \    '<F8>' : 'gdb %<'}, 
+            \
+            \   'python' : 
+            \   {'<F8>' : 'python -i %', 
+            \    '<F9>' : 'python %'},
+            \
+            \   'sh' : 
+            \   {'<F9>' : 'chmod +x %',
+            \   '<F8>' : './%'}, 
+            \
+            \   'lua': 
+            \   {'<F9>' : 'lua %'}, 
+            \
+            \   'rst' : 
+            \   {'<F9>' : 'rst2html.py % %<.html',
+            \    '<F8>' : 'firefox %<.html'},
+            \
+            \   'pascal' :
+            \   {'<F9>' : 'fpc % -g -pg',
+            \    '<F8>' : 'gdb %<'},
+            \
+            \   'tex' :
+            \   {'<F8>' : "okular %<.pdf &> /dev/null &",
+            \   '<F9>' : 'xelatex -shell-escape %'},
+            \
+            \   'lilypond' :
+            \   {'<F8>' : 'okular %<.pdf',
+            \   '<F9>' : 'lilypond %'},
+            \
+            \   'scheme' :
+            \   {'<F9>' : 'guile %'},
+            \
+            \   'gnuplot' :
+            \   {'<F9>' : 'gnuplot %',
+            \   '<F8>' : 'gqview %<.png'},
+            \   'matlab' :
+            \   {'<F9>' : 'octave -qf %'}
+            \ }
+
+call MakeShortcut(keymap_dict)
+" Shortcuts for different filetypes
+
+"inoremap <C-h> <left>
+"inoremap <C-l> <right>
+"inoremap <C-k> <up>
+"inoremap <C-j> <down>
+"Speed up moving around in insert mode
+
+nmap <left> <C-W><
+nmap <right> <C-W>>
+nmap <up> <C-W>+
+nmap <down> <C-W>-
+nmap <C-n> gt
+"Speed up buffer size adjusting
+
+map<F2> :NERDTreeToggle <CR>
+map<F5> :!./%< < %<.in <CR>
+" Global shortcuts
+cabbr <expr> %% expand('%:p:h')
+"autocmd BufRead,BufNewFile *.md set filetype=markdown
