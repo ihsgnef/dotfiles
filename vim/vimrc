@@ -18,7 +18,7 @@ Plugin 'The-NERD-tree'
 "Plugin 'ctags.vim'
 Plugin 'tagbar'
 "Plugin 'fugitive.vim'
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 
 filetype plugin indent on
 
@@ -78,8 +78,8 @@ call MakeShortcut(keymap_dict)
 :map <F10> :! ./%<<CR>
 
 :map <C-c> :!clear<CR>
-:map <C-i> :TagbarToggle<CR>
-:map <C-t> :NERDTree<CR>
+:map <C-t> :TagbarToggle<CR>
+:map <F3> :NERDTree<CR>
 :map <C-h> <C-w>h
 :map <C-j> <C-w>j
 :map <C-k> <C-w>k
@@ -185,7 +185,7 @@ let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 
 " airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'simple'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = "fancy"
