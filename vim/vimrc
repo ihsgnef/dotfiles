@@ -10,7 +10,7 @@ filetype off
  
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
- 
+Plugin 'kien/ctrlp'
 Plugin 'gmarik/vundle'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/powerline'
