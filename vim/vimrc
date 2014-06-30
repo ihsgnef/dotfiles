@@ -1,4 +1,4 @@
-colorscheme fswombat
+colorscheme Tomorrow-Night
 if $SHELL =~ 'bin/fish'
     set shell=/bin/sh
 endif
@@ -185,7 +185,7 @@ let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 
 " airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme = 'simple'
+let g:airline_theme = 'tomorrow'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = "fancy"
