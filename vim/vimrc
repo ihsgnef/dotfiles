@@ -1,4 +1,5 @@
-colorscheme Tomorrow-Night
+colorscheme base16-tomorrow
+set background=dark
 if $SHELL =~ 'bin/fish'
     set shell=/bin/sh
 endif
@@ -13,12 +14,12 @@ call vundle#rc()
 Plugin 'kien/ctrlp.vim'
 Plugin 'gmarik/vundle'
 Plugin 'bling/vim-airline'
-Plugin 'Lokaltog/powerline'
 Plugin 'The-NERD-tree'
-"Plugin 'ctags.vim'
+Plugin 'ctags.vim'
 Plugin 'tagbar'
 "Plugin 'fugitive.vim'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'chriskempson/base16-vim'
 
 filetype plugin indent on
 
@@ -98,8 +99,8 @@ call MakeShortcut(keymap_dict)
 :noremap j gj
 :inoremap <M-j> <C-O>gj
 :imap jj <ESC>
-" for eclim
-" :inoremap <C-l> <C-x><C-u>
+
+let mapleader=","
 
 " autocomplete abbreviation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -200,3 +201,4 @@ let g:jedi#popup_on_dot = 0
 autocmd FileType python setlocal completeopt-=preview
 
 let g:ctrlp_map = '<c-p>'
+
