@@ -22,11 +22,11 @@ function fish_prompt --description 'Write out the prompt'
   set -l cwd $white(basename (prompt_pwd))
 
   if [ (_git_branch_name) ]
-    set -l git_branch $red(_git_branch_name)
-    set git_info "$blue git:($git_branch$blue)"
+    set -l git_branch (_git_branch_name)
+    set git_info "git:($git_branch)"
 
     if [ (_is_git_dirty) ]
-      set -l dirty "$yellow⚡ "
+      set -l dirty "⚡ "
 
       set git_info "$dirty$git_info"
     end
@@ -73,7 +73,7 @@ if not set -q __fish_prompt_cwd
             set -g __fish_prompt_cwd (set_color $fish_color_cwd)
         end
 
-printf '%s%s %s%s \f\r❯ ' "$__fish_prompt_cwd" (pwd) "$__fish_color_status" "$__fish_prompt_normal"
+printf '%s%s%s %s%s \f\r❯ ' "$git_info" "$__fish_prompt_cwd" (pwd) "$__fish_color_status" "$__fish_prompt_normal"
 
 end
 end
