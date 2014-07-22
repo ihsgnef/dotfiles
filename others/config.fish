@@ -1,5 +1,5 @@
 # Base16 Shell
-eval sh $HOME/.config/base16-shell/base16-default.dark.sh
+# eval sh $HOME/.config/base16-shell/base16-tomorrow.dark.sh
 
 set -g -x PATH /usr/local/bin $PATH
 set fish_greeting ""

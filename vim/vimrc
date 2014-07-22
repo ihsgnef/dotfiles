@@ -4,6 +4,7 @@ if $SHELL =~ 'bin/fish'
     set shell=/bin/sh
 endif
 
+
 " Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 set nocompatible
@@ -13,16 +14,14 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Plugin 'kien/ctrlp.vim'
 Plugin 'gmarik/vundle'
-Plugin 'bling/vim-airline'
 Plugin 'The-NERD-tree'
 Plugin 'ctags.vim'
 Plugin 'tagbar'
-"Plugin 'fugitive.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'bling/vim-airline'
 
 filetype plugin indent on
-
 
 function MakeShortcut(shortcut_dict) 
     for a:ftype in keys(a:shortcut_dict)
@@ -184,7 +183,7 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 "let g:tagbar_left = 1
 
-" airline
+" airline/powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_theme = 'tomorrow'
 let g:airline#extensions#whitespace#enabled = 0
