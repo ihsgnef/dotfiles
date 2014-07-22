@@ -185,7 +185,7 @@ let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 
 " airline/powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'wombat'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = "fancy"
