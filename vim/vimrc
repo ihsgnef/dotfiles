@@ -20,6 +20,7 @@ Plugin 'tagbar'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
 
 filetype plugin indent on
 
@@ -190,9 +191,8 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = "fancy"
 
-" eclim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set completeopt-=preview
+" eclim """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set completeopt-=preview
 
 " jedi
 let g:jedi#completions_command = "<M-p>"
@@ -201,3 +201,8 @@ autocmd FileType python setlocal completeopt-=preview
 
 let g:ctrlp_map = '<c-p>'
 
+
+" eclim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p

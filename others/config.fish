@@ -5,7 +5,7 @@ set -g -x PATH /usr/local/bin $PATH
 set fish_greeting ""
 alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
 alias vmubuntu='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/Ubuntu\ 64-bit.vmwarevm/Ubuntu\ 64-bit.vmx nogui'
-alias ubuntu='ssh fs@172.16.145.162'
+alias ubuntu='ssh fs@172.16.145.172'
 
 alias antlr4='java -jar /usr/local/lib/antlr-4.0-complete.jar'
 alias grun='java org.antlr.v4.runtime.misc.TestRig'
