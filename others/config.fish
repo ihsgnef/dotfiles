@@ -1,7 +1,7 @@
 # Base16 Shell
 # eval sh $HOME/.config/base16-shell/base16-tomorrow.dark.sh
 
-set -g -x PATH /usr/local/bin $PATH
+set -g -x PATH /usr/local/bin /Users/fs/cross-compiler $PATH
 set fish_greeting ""
 alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
 alias vmubuntu='vmrun -T fusion start ~/Documents/Virtual\ Machines.localized/Ubuntu\ 64-bit.vmwarevm/Ubuntu\ 64-bit.vmx nogui'
