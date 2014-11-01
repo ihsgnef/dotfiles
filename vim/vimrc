@@ -1,5 +1,5 @@
 colorscheme base16-tomorrow
-set background=light
+set background=dark
 if $SHELL =~ 'bin/fish'
     set shell=/bin/sh
 endif
@@ -140,7 +140,7 @@ set iskeyword+=_,$,@,%,#,-
 syntax on 
 set linespace=0  
 set nu  
-"set cursorline
+set cursorline
 set wildmenu  
 set laststatus=2  
 set ruler
@@ -198,7 +198,7 @@ let g:Powerline_symbols = "fancy"
 "set completeopt-=preview
 
 " jedi
-let g:jedi#completions_command = "<M-p>"
+let g:jedi#completions_command = "<C-a>"
 let g:jedi#popup_on_dot = 0
 autocmd FileType python setlocal completeopt-=preview
 
@@ -207,8 +207,8 @@ let g:ctrlp_map = '<c-p>'
 
 " NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
 
 function! NERDTreeQuit()
   redir => buffersoutput
