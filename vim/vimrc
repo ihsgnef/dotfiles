@@ -13,10 +13,10 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 "Plugin 'kien/ctrlp.vim'
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/vundle.vim'
 Plugin 'The-NERD-tree'
-Plugin 'ctags.vim'
-Plugin 'tagbar'
+"Plugin 'ctags.vim'
+"Plugin 'tagbar'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
