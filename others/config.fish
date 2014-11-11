@@ -1,6 +1,8 @@
 # Base16 Shell
 # eval sh $HOME/.config/base16-shell/base16-tomorrow.dark.sh
 
+tmux
+
 set -g -x PATH /usr/local/bin /Users/fs/cross-compiler $PATH
 set fish_greeting ""
 alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
@@ -33,3 +35,5 @@ alias tqchen='ssh -X tqchen@172.16.2.17'
 alias galaxy='ssh fs@adapt.seiee.sjtu.edu.cn'
 
 setenv EDITOR vim
+
+set --export PYTHONPATH /Library/Python/2.7/site-packages/

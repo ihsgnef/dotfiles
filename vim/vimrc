@@ -12,17 +12,20 @@ filetype off
  
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-"Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'gmarik/vundle.vim'
 Plugin 'The-NERD-tree'
 "Plugin 'ctags.vim'
 "Plugin 'tagbar'
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'airblade/vim-gitgutter'
+"Plugin 'JuliaLang/julia-vim'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'unilatex.vim'
 
 filetype plugin indent on
 
@@ -76,11 +79,12 @@ call MakeShortcut(keymap_dict)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :nmap <F1> :.w !pbcopy<CR><CR>
 :vmap <F1> :w !pbcopy<CR><CR>
+:vmap <Enter> <Plug>(EasyAlign)
 :nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 :imap <F2> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-:map <F3> :NERDTreeToggle<CR>
-:map <F10> :! ./%<<CR>
-:map <F4> :TlistToggle<CR>
+ :map <F3> :NERDTreeToggle<CR>
+ :map <F10> :! ./%<<CR>
+ :map <F4> :TlistToggle<CR>
 
 :map <C-c> :!clear<CR>
 :map <C-t> :TagbarToggle<CR>
@@ -97,11 +101,11 @@ call MakeShortcut(keymap_dict)
 :nnoremap g# g#zz
 :nnoremap d "_d
 :nnoremap ,p :put " <CR>
-:noremap k gk
+:noremap  k gk
 :inoremap <M-k> <C-O>gk
-:noremap j gj
+:noremap  j gj
 :inoremap <M-j> <C-O>gj
-:imap jj <ESC>
+:imap     jj <ESC>
 
 let mapleader=","
 
@@ -186,6 +190,7 @@ set foldmethod=manual
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 "let g:tagbar_left = 1
+set timeoutlen=1000 ttimeoutlen=0
 
 " airline/powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -237,3 +242,12 @@ autocmd WinEnter * call NERDTreeQuit()
 " TagList
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let Tlist_Use_Right_Window = 1
+
+" julia-vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:latex_to_unicode_auto = 1
+
+" backlight control, with Lab Stick
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd InsertLeave * silent :!osascript -e 'tell application "System Events" to keystroke "`" using control down'
+autocmd InsertEnter * silent :!osascript -e 'tell application "System Events" to keystroke "`" using control down'
