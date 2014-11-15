@@ -11,7 +11,8 @@ set nocompatible
 filetype off
  
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
+
 Plugin 'kien/ctrlp.vim'
 Plugin 'gmarik/vundle.vim'
 Plugin 'The-NERD-tree'
@@ -23,10 +24,12 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'JuliaLang/julia-vim'
+Plugin 'JuliaLang/julia-vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'unilatex.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
+call vundle#end()
 filetype plugin indent on
 
 function MakeShortcut(shortcut_dict) 
@@ -63,7 +66,7 @@ let keymap_dict = {
             \
             \   'scheme' :
             \   {'<F9>' : 'guile %'},
-            \
+			\
             \   'gnuplot' :
             \   {'<F9>' : 'gnuplot %',
             \   '<F8>' : 'gqview %<.png'},
@@ -249,5 +252,5 @@ let g:latex_to_unicode_auto = 1
 
 " backlight control, with Lab Stick
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd InsertLeave * silent :!osascript -e 'tell application "System Events" to keystroke "`" using control down'
-autocmd InsertEnter * silent :!osascript -e 'tell application "System Events" to keystroke "`" using control down'
+"autocmd InsertLeave * silent :!osascript -e 'tell application "System Events" to keystroke "`" using control down'
+"autocmd InsertEnter * silent :!osascript -e 'tell application "System Events" to keystroke "`" using control down'
