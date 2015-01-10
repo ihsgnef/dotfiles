@@ -18,7 +18,7 @@ Plugin 'gmarik/vundle.vim'
 Plugin 'The-NERD-tree'
 "Plugin 'ctags.vim'
 "Plugin 'tagbar'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
@@ -26,7 +26,7 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'unilatex.vim'
+"Plugin 'unilatex.vim'
 Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
@@ -197,7 +197,7 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " airline/powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'jellybeans'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = "fancy"
