@@ -53,6 +53,10 @@ let keymap_dict = {
             \               -Wall -Wextra -Wconversion -pedantic 
             \               -Wno-long-long',}, 
             \
+            \   'java' : 
+            \   {'<F9>' : 'javac %',
+            \   '<F10>' : 'java %'}, 
+            \
             \   'python' : 
             \   {'<F8>' : 'python -i %', 
             \    '<F9>' : 'python %'},
