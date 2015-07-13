@@ -21,7 +21,7 @@ Plugin 'The-NERD-tree'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'JuliaLang/julia-vim'
@@ -75,8 +75,8 @@ let keymap_dict = {
             \   {'<F9>' : 'gnuplot %',
             \   '<F8>' : 'gqview %<.png'},
 			\
-            \   'matlab' :
-            \   {'<F9>' : 'octave -qf %'}
+            \   'ocaml' :
+            \   {'<F9>' : 'ocaml %'}
             \ }
 
 call MakeShortcut(keymap_dict)
@@ -113,6 +113,10 @@ call MakeShortcut(keymap_dict)
 :noremap  j gj
 :inoremap <M-j> <C-O>gj
 :imap     jj <ESC>
+" :imap ` <Esc>
+:inoremap ( ()<Esc>:let leavechar=")"<CR>i
+:inoremap [ []<Esc>:let leavechar="]"<CR>i
+:imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
 
 let mapleader=","
 
@@ -172,11 +176,14 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\
 set showmatch  
 set matchtime=5  
 set ignorecase  
-set nohlsearch  
+set hlsearch  
 set incsearch  
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$  
 set scrolloff=50
 set novisualbell  
+" ctrl+c to toggle highlight.
+let hlstate=0
+nnoremap <c-c> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
   
 " Formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
