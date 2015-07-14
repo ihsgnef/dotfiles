@@ -1,4 +1,3 @@
-" colorscheme base16-tomorrow
 set background=dark
 if $SHELL =~ 'bin/fish'
     set shell=/bin/sh
@@ -16,7 +15,6 @@ call vundle#begin()
 Plugin 'kien/ctrlp.vim'
 Plugin 'gmarik/vundle.vim'
 Plugin 'The-NERD-tree'
-Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'airblade/vim-gitgutter'
