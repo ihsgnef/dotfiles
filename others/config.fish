@@ -28,6 +28,8 @@ alias galaxy='ssh fs@adapt.seiee.sjtu.edu.cn'
 alias milky='ssh -p 9022 fs@202.120.38.145'
 alias gup='git add --all :/; git commit -a -m "Update"; git push origin master'
 alias aria2='cd /Users/fs/Downloads/aria2/; aria2c --enable-rpc --rpc-listen-all'
+alias py8='env OMP_NUM_THREADS=8 python'
+alias py4='env OMP_NUM_THREADS=4 python'
 
 set --export PYTHONPATH /Library/Python/2.7/site-packages/
 set PATH /Users/$USER/.opam/system/bin $PATH
