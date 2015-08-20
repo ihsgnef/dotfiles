@@ -1,11 +1,9 @@
-if $SHELL =~ 'bin/fish'
-    set shell=/bin/sh
-endif
+colors koehler
 
 " Vundle
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -13,7 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'The-NERD-tree'
-Plugin 'airblade/vim-gitgutter'
+""Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'majutsushi/tagbar'
@@ -22,6 +20,10 @@ Plugin 'vim-scripts/AutoClose'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+" Compile shortcuts
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function MakeShortcut(shortcut_dict) 
     for a:ftype in keys(a:shortcut_dict)
@@ -58,20 +60,11 @@ let keymap_dict = {
             \
             \   'tex' :
             \   {'<F9>' : 'xelatex -shell-escape %'},
-            \
-            \   'scheme' :
-            \   {'<F9>' : 'guile %'},
-			\
-            \   'gnuplot' :
-            \   {'<F9>' : 'gnuplot %',
-            \   '<F8>' : 'gqview %<.png'},
-			\
-            \   'ocaml' :
-            \   {'<F9>' : 'ocaml %'}
             \ }
 
 call MakeShortcut(keymap_dict)
-" Shortcuts for different filetypes
+
+
 
 " Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -79,9 +72,7 @@ call MakeShortcut(keymap_dict)
 :map <F3> :NERDTreeToggle<CR>
 :map <F4> :TagbarToggle<CR>
 :map <F10> :! ./%<<CR>
-
 :map <C-c> :!clear<CR>
-
 :map <C-h> <C-w>h
 :map <C-j> <C-w>j
 :map <C-k> <C-w>k
@@ -99,13 +90,13 @@ call MakeShortcut(keymap_dict)
 :inoremap <M-k> <C-O>gk
 :noremap  j gj
 :inoremap <M-j> <C-O>gj
-:imap     jj <ESC>
-" :imap ` <Esc>
 :inoremap ( ()<Esc>:let leavechar=")"<CR>i
 :inoremap [ []<Esc>:let leavechar="]"<CR>i
 :imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
+:imap     jj <ESC>
 
 let mapleader=","
+
 
 " autocomplete abbreviation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -118,6 +109,7 @@ iab cl class
 iab ab abstract
 "iab re return
 
+
 " File Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 set nobackup 
@@ -128,6 +120,7 @@ filetype indent on
 set autochdir 
 set ffs=unix,dos,mac " favor unix ff, which behaves good under bot Winz & Linux  
 set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard 
+
 
 " Display Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
@@ -157,6 +150,7 @@ set report=0
 set noerrorbells  
 set fillchars=vert:\ ,stl:\ ,stlnc:\  
 
+
 " Searching and Matching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 set showmatch  
@@ -167,10 +161,13 @@ set incsearch
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$  
 set scrolloff=50
 set novisualbell  
+
 " ctrl+c to toggle highlight.
 let hlstate=0
 nnoremap <c-c> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
   
+
+
 " Formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 set formatoptions=tcrqn  
@@ -183,14 +180,17 @@ set wrap
 set smarttab  
 set backspace=indent,eol,start
  
+
+
 " Others
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 set foldenable  
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-"let g:tagbar_left = 1
+let g:tagbar_ctags_bin='/usr/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
+
+
 
 " airline/powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -198,6 +198,7 @@ let g:airline_theme = 'murmur'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 0
 let g:Powerline_symbols = "fancy"
+
 
 
 " NERDTree
