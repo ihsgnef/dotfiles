@@ -1,33 +1,26 @@
-colors koehler
-
 set shell=/bin/bash
-
-
-" Vundle
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'The-NERD-tree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'majutsushi/tagbar'
-Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/AutoClose'
+Plugin 'majutsushi/tagbar'
+" Plugin 'mileszs/ack.vim'
+Plugin 'bling/vim-airline'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Compile shortcuts
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function MakeShortcut(shortcut_dict) 
     for a:ftype in keys(a:shortcut_dict)
@@ -39,6 +32,8 @@ function MakeShortcut(shortcut_dict)
     endfor
 endfunction
 
+" F9 shortcuts
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let keymap_dict = {
             \   'cpp' : 
             \   {'<F9>' : 'g++ -o %< % -g -pg 
@@ -64,40 +59,57 @@ let keymap_dict = {
             \
             \   'tex' :
             \   {'<F9>' : 'xelatex -shell-escape %'},
+            \
+            \   'scheme' :
+            \   {'<F9>' : 'guile %'},
+			\
+            \   'gnuplot' :
+            \   {'<F9>' : 'gnuplot %',
+            \   '<F8>' : 'gqview %<.png'},
+			\
+            \   'ocaml' :
+            \   {'<F9>' : 'ocaml %'}
             \ }
 
 call MakeShortcut(keymap_dict)
 
 
-
 " Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:vmap <Enter> <Plug>(EasyAlign)
-:map <F3> :NERDTreeToggle<CR>
-:map <F4> :TagbarToggle<CR>
-:map <F10> :! ./%<<CR>
-:map <C-c> :!clear<CR>
-:map <C-h> <C-w>h
-:map <C-j> <C-w>j
-:map <C-k> <C-w>k
-:map <C-l> <C-w>l
+nmap <F1> :.w !pbcopy<CR><CR>
+vmap <F1> :w !pbcopy<CR><CR>
+vmap <Enter> <Plug>(EasyAlign)
+nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F2> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+map <F3> :NERDTreeToggle<CR>
+nmap <F4> :TagbarToggle<CR>
+map <F10> :! ./%<<CR>
 
-:nnoremap n nzz
-:nnoremap N Nzz
-:nnoremap * *zz
-:nnoremap # #zz
-:nnoremap g* g*zz
-:nnoremap g# g#zz
-:nnoremap d "_d
-:nnoremap ,p :put " <CR>
-:noremap  k gk
-:inoremap <M-k> <C-O>gk
-:noremap  j gj
-:inoremap <M-j> <C-O>gj
-:inoremap ( ()<Esc>:let leavechar=")"<CR>i
-:inoremap [ []<Esc>:let leavechar="]"<CR>i
-:imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
-:imap     jj <ESC>
+
+map <C-c> :!clear<CR>
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+nnoremap d "_d
+nnoremap ,p :put " <CR>
+noremap  k gk
+inoremap <M-k> <C-O>gk
+noremap  j gj
+inoremap <M-j> <C-O>gj
+imap     jj <ESC>
+" :imap ` <Esc>
+inoremap ( ()<Esc>:let leavechar=")"<CR>i
+inoremap [ []<Esc>:let leavechar="]"<CR>i
+imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
+
 
 let mapleader=","
 
@@ -113,7 +125,6 @@ iab cl class
 iab ab abstract
 "iab re return
 
-
 " File Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 set nobackup 
@@ -124,7 +135,6 @@ filetype indent on
 set autochdir 
 set ffs=unix,dos,mac " favor unix ff, which behaves good under bot Winz & Linux  
 set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard 
-
 
 " Display Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
@@ -139,6 +149,7 @@ set iskeyword+=_,$,@,%,#,-
 syntax on 
 set linespace=0  
 set nu  
+"set cursorline
 set wildmenu  
 set laststatus=2  
 set ruler
@@ -153,7 +164,9 @@ set shortmess=atI
 set report=0  
 set noerrorbells  
 set fillchars=vert:\ ,stl:\ ,stlnc:\  
-
+" "highlight StatusLine ctermbg=black ctermfg=black
+" "highlight VertSplit ctermbg=black ctermfg=black
+" "highlight HoriSplit ctermbg=darkblue ctermfg=darkblue
 
 " Searching and Matching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
@@ -165,13 +178,10 @@ set incsearch
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$  
 set scrolloff=50
 set novisualbell  
-
 " ctrl+c to toggle highlight.
 let hlstate=0
 nnoremap <c-c> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
   
-
-
 " Formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 set formatoptions=tcrqn  
@@ -184,25 +194,22 @@ set wrap
 set smarttab  
 set backspace=indent,eol,start
  
-
-
 " Others
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 set foldenable  
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
-let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+let g:tagbar_left= 1
 set timeoutlen=1000 ttimeoutlen=0
 
 
-
-" airline/powerline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+let g:airline_theme = 'fs'
+let g:airline_powerline_fonts = 0
 let g:airline_theme = 'murmur'
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 1
-let g:Powerline_symbols = "fancy"
-
 
 
 " NERDTree
@@ -233,7 +240,6 @@ function! NERDTreeQuit()
   endif
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
-
 
 " markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
