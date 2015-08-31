@@ -1,3 +1,6 @@
+colors base16-atelierlakeside
+set background=dark
+
 set shell=/bin/bash
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -17,6 +20,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -164,9 +168,6 @@ set shortmess=atI
 set report=0  
 set noerrorbells  
 set fillchars=vert:\ ,stl:\ ,stlnc:\  
-" "highlight StatusLine ctermbg=black ctermfg=black
-" "highlight VertSplit ctermbg=black ctermfg=black
-" "highlight HoriSplit ctermbg=darkblue ctermfg=darkblue
 
 " Searching and Matching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
@@ -200,7 +201,7 @@ set foldenable
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-let g:tagbar_left= 1
+let g:tagbar_left= 0
 set timeoutlen=1000 ttimeoutlen=0
 
 
@@ -208,7 +209,7 @@ set timeoutlen=1000 ttimeoutlen=0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 let g:airline_theme = 'fs'
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'murmur'
+let g:airline_theme = 'base16'
 let g:airline#extensions#whitespace#enabled = 0
 
 
@@ -244,3 +245,12 @@ autocmd WinEnter * call NERDTreeQuit()
 " markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_markdown_folding_disabled=1
+
+" indent guide
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=238
+""set ts=4 sw=4 et
+""let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
