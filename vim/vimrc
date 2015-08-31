@@ -16,7 +16,6 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-scripts/AutoClose'
 Plugin 'majutsushi/tagbar'
-" Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -24,7 +23,6 @@ Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
 
 function MakeShortcut(shortcut_dict) 
     for a:ftype in keys(a:shortcut_dict)
@@ -200,14 +198,13 @@ set backspace=indent,eol,start
 set foldenable  
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 let g:tagbar_left= 0
+let g:tagbar_ctags_bin='/usr/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
 
 
 " Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-let g:airline_theme = 'fs'
 let g:airline_powerline_fonts = 0
 let g:airline_theme = 'base16'
 let g:airline#extensions#whitespace#enabled = 0
