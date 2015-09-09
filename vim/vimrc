@@ -1,4 +1,4 @@
-colors base16-atelierlakeside
+colors base16-ocean
 set background=dark
 
 set shell=/bin/bash
@@ -20,6 +20,8 @@ Plugin 'bling/vim-airline'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-fugitive'
+Plugin 'sjl/gundo.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -86,6 +88,8 @@ imap <F2> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 map <F3> :NERDTreeToggle<CR>
 nmap <F4> :TagbarToggle<CR>
 map <F10> :! ./%<<CR>
+nnoremap <F5> :GundoToggle<CR>
+
 
 
 map <C-c> :!clear<CR>
@@ -199,7 +203,7 @@ set foldenable
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 let g:tagbar_left= 0
-let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
 
 
@@ -248,6 +252,6 @@ let g:vim_markdown_folding_disabled=1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=238
-""set ts=4 sw=4 et
-""let g:indent_guides_start_level=2
+"set ts=4 sw=4 et
+"let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
