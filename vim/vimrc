@@ -16,7 +16,8 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-scripts/AutoClose'
 Plugin 'majutsushi/tagbar'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -213,6 +214,18 @@ set timeoutlen=1000 ttimeoutlen=0
 let g:airline_powerline_fonts = 0
 let g:airline_theme = 'base16'
 let g:airline#extensions#whitespace#enabled = 0
+
+
+" Lightline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
 
 
 " NERDTree
