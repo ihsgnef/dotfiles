@@ -1,5 +1,5 @@
 colors base16-ocean
-set background=light
+set background=dark
 
 set shell=/bin/bash
 set nocompatible              " be iMproved, required
