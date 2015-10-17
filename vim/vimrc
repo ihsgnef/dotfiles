@@ -1,5 +1,5 @@
 colors base16-ocean
-set background=dark
+set background=light
 
 set shell=/bin/bash
 set nocompatible              " be iMproved, required
@@ -208,26 +208,6 @@ let g:tagbar_left= 1
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
 
-
-" Airline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-let g:airline_powerline_fonts = 0
-let g:airline_theme = 'base16'
-let g:airline#extensions#whitespace#enabled = 0
-
-
-" Lightline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}',
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
-
-
 " NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " autocmd VimEnter * NERDTree
@@ -269,3 +249,66 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=238
 "set ts=4 sw=4 et
 "let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
+
+" Airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'base16'
+let g:airline#extensions#whitespace#enabled = 0
+
+
+" Lightline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightLineFugitive',
+      \   'readonly': 'LightLineReadonly',
+      \   'modified': 'LightLineModified',
+      \   'filename': 'LightLineFilename'
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
+
+
+function! LightLineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightLineReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "⭤"
+  else
+    return ""
+  endif
+endfunction
+
+function! LightLineFugitive()
+  if exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? '⭠ '._ : ''
+  endif
+  return ''
+endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
