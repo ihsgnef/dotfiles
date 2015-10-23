@@ -208,6 +208,12 @@ let g:tagbar_left= 1
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
 
+" remember last position
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 " NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " autocmd VimEnter * NERDTree
@@ -271,9 +277,12 @@ let g:lightline = {
       \   'modified': 'LightLineModified',
       \   'filename': 'LightLineFilename'
       \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ 'separator': { 'left': '', 'right': '' },
+       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
+
+      " \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      "  \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 
 
 
