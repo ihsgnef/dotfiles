@@ -116,10 +116,9 @@ imap     jj <ESC>
 inoremap ( ()<Esc>:let leavechar=")"<CR>i
 inoremap [ []<Esc>:let leavechar="]"<CR>i
 imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
-
+nnoremap tn :tabnew<CR>
 
 let mapleader=","
-
 
 " autocomplete abbreviation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -281,10 +280,8 @@ let g:lightline = {
        \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
 
-      " \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      "  \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-
-
+       "\ 'separator': { 'left': '⮀', 'right': '⮂' },
+       " \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 
 function! LightLineModified()
   if &filetype == "help"
