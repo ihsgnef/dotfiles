@@ -203,7 +203,7 @@ set backspace=indent,eol,start
 set foldenable  
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
-let g:tagbar_left= 1
+let g:tagbar_left= 0
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
 
@@ -245,6 +245,10 @@ autocmd WinEnter * call NERDTreeQuit()
 " markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_markdown_folding_disabled=1
+
+" Gundo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gundo_preview_bottom = 1
 
 " indent guide
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
