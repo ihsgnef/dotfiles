@@ -28,6 +28,7 @@ alias htop='sudo htop -u fs'
 alias gcm='git commit'
 alias gst='git status -s'
 alias gco='git checkout'
+alias gpush='git push'
 
 set --export PYTHONPATH /Library/Python/2.7/site-packages/
 
