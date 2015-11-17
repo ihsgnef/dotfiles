@@ -25,11 +25,6 @@ alias py8='env OMP_NUM_THREADS=8 python'
 alias py4='env OMP_NUM_THREADS=4 python'
 alias htop='sudo htop -u fs'
 
-alias gcm='git commit'
-alias gst='git status -s'
-alias gco='git checkout'
-alias gpush='git push'
-
 set --export PYTHONPATH /Library/Python/2.7/site-packages/
 
 eval (python -m virtualfish auto_activation)
