@@ -18,6 +18,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'vim-scripts/AutoClose'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'itchyny/lightline.vim'
+" NeoBundle 'bling/vim-bufferline'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -134,13 +135,7 @@ nmap <F4> :TagbarToggle<CR>
 map <F10> :! ./%<<CR>
 nnoremap <F5> :GundoToggle<CR>
 
-
-
 map <C-c> :!clear<CR>
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -155,11 +150,9 @@ inoremap <M-k> <C-O>gk
 noremap  j gj
 inoremap <M-j> <C-O>gj
 imap     jj <ESC>
-" :imap ` <Esc>
-inoremap ( ()<Esc>:let leavechar=")"<CR>i
-inoremap [ []<Esc>:let leavechar="]"<CR>i
-imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
 nnoremap tn :tabnew<CR>
+nnoremap <C-h> :bprevious<CR>
+nnoremap <C-l> :bNext<CR>
 
 let mapleader=","
 
@@ -365,6 +358,21 @@ endfunction
 " Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 let g:unite_source_history_yank_enable = 1
-nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <C-p> :Unite file_rec/async -default-action=tabopen<cr>
 nnoremap <space>/ :Unite grep:.<cr>
 nnoremap <space>y :Unite history/yank<cr>
+inoremap <silent><buffer><expr> <C-s>     unite#do_action('split')
+inoremap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+nnoremap <leader>ft :Unite file_rec/async -default-action=tabopen<cr>
+nnoremap <leader>fs :Unite file_rec/async -default-action=split<cr>
+nnoremap <leader>fv :Unite file_rec/async -default-action=vsplit<cr>
+nnoremap <leader>fc :Unite file_rec/async<cr>
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
