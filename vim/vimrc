@@ -1,3 +1,10 @@
+colors base16-ocean
+set background=dark
+
+set shell=/bin/bash
+
+" NeoBundle
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if 0 | endif
 
 if has('vim_starting')
@@ -17,14 +24,15 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'vim-scripts/AutoClose'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'itchyny/lightline.vim'
-" NeoBundle 'bling/vim-bufferline'
+" NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -41,36 +49,8 @@ filetype plugin indent on
 
 NeoBundleCheck
 
-
-colors base16-ocean
-set background=dark
-
-set shell=/bin/bash
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" 
-" Plugin 'gmarik/Vundle.vim'
-" Plugin 'The-NERD-tree'
-" Plugin 'airblade/vim-gitgutter'
-" Plugin 'junegunn/vim-easy-align'
-" Plugin 'terryma/vim-multiple-cursors'
-" Plugin 'vim-scripts/AutoClose'
-" Plugin 'majutsushi/tagbar'
-" Plugin 'itchyny/lightline.vim'
-" Plugin 'godlygeek/tabular'
-" Plugin 'plasticboy/vim-markdown'
-" Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'sjl/gundo.vim'
-" Plugin 'Shougo/unite.vim'
-" Plugin 'Shougo/vimproc.vim'
-" 
-" call vundle#end()            " required
-" filetype plugin indent on    " required
-
+" F9 shortcuts
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function MakeShortcut(shortcut_dict) 
     for a:ftype in keys(a:shortcut_dict)
         let a:ftype_dict = a:shortcut_dict[a:ftype]
@@ -81,8 +61,6 @@ function MakeShortcut(shortcut_dict)
     endfor
 endfunction
 
-" F9 shortcuts
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let keymap_dict = {
             \   'cpp' : 
             \   {'<F9>' : 'g++ -o %< % -g -pg 
@@ -151,8 +129,8 @@ noremap  j gj
 inoremap <M-j> <C-O>gj
 imap     jj <ESC>
 nnoremap tn :tabnew<CR>
-nnoremap <C-h> :bprevious<CR>
-nnoremap <C-l> :bNext<CR>
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
 
 let mapleader=","
 
@@ -358,7 +336,7 @@ endfunction
 " Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 let g:unite_source_history_yank_enable = 1
-nnoremap <C-p> :Unite file_rec/async -default-action=tabopen<cr>
+" nnoremap <C-p> :Unite file_rec/async -default-action=tabopen<cr>
 nnoremap <space>/ :Unite grep:.<cr>
 nnoremap <space>y :Unite history/yank<cr>
 inoremap <silent><buffer><expr> <C-s>     unite#do_action('split')
@@ -376,3 +354,28 @@ function! s:unite_settings()
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
+
+" Airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+let g:airline_symbols.branch = '⭠'
+let g:airline_section_warning=''
+let g:airline_section_x=''
+let g:airline_extensions = ['branch']
