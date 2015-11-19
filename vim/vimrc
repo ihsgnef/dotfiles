@@ -128,9 +128,11 @@ inoremap <M-k> <C-O>gk
 noremap  j gj
 inoremap <M-j> <C-O>gj
 imap     jj <ESC>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 nnoremap tn :tabnew<CR>
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
 
 let mapleader=","
 
@@ -223,6 +225,8 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 let g:tagbar_left= 0
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
+set splitbelow
+set splitright
 
 " remember last position
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
