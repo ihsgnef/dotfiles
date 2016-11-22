@@ -8,6 +8,9 @@ alias nnn='ncmpcpp'
 alias grep='grep --color=auto'
 alias cx='cd ..'
 alias l='ls -FsGgHhlp'
+alias l='ls -FsGgHhlprt'
+alias mv='mv -i'
+alias cp='cp -i'
 alias vim='mvim -v'
 alias vi='mvim -v'
 alias irc='irssi'
@@ -15,10 +18,9 @@ alias clk='tty-clock -sctDC 1'
 alias awd='ls -lghGFH'
 alias asd='cd'
 alias rg='ranger'
-alias tt='tmux attach -t'
+alias tmux='env TERM=screen-256color tmux'
+alias tt='tmux attach'
 alias tl='tmux list-sessions'
-alias galaxy='ssh fs@adapt.seiee.sjtu.edu.cn'
-alias milky='ssh -p 9022 fs@202.120.38.145'
 alias gup='git add --all :/; git commit -a -m "Update"; git push origin master'
 alias py16='env OMP_NUM_THREADS=16 python'
 alias py8='env OMP_NUM_THREADS=8 python'
@@ -26,10 +28,9 @@ alias py4='env OMP_NUM_THREADS=4 python'
 alias py2='env OMP_NUM_THREADS=2 python'
 alias py='env OMP_NUM_THREADS=1 python'
 alias htop='sudo htop -u fs'
-alias conda='/Users/fs/miniconda2/bin/conda'
-alias chromium='/Applications/Chromium.app/Contents/MacOS/Chromium --ppapi-flash-path=/Library/Internet\ Plug-Ins/PepperFlashPlayer/PepperFlashPlayer.plugin --ppapi-flash-version=21.0.0.197'
-alias xxxshow='setfile -a v ~/Downloads/untitled.dmg'
-alias xxxhide='setfile -a V ~/Downloads/untitled.dmg'
+alias xshow='setfile -a v'
+alias xhide='setfile -a V'
+alias context='ssh shifeng@context.umiacs.umd.edu'
 
 set --export PYTHONPATH /Library/Python/2.7/site-packages/
 
@@ -52,4 +53,9 @@ function fuck -d 'Correct your previous console command'
     if test $exit_code -ne 0
         history --delete $fucked_up_commandd
     end
+end
+
+# Base16 Shell
+if status --is-interactive
+    eval sh $HOME/.config/base16-shell/scripts/base16-eighties.sh
 end

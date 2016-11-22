@@ -1,5 +1,6 @@
 syntax on
 colorscheme base16-ocean
+let base16colorspace=256
 set background=dark
 
 set shell=/bin/bash
@@ -26,7 +27,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'vim-scripts/AutoClose'
 NeoBundle 'majutsushi/tagbar'
 " NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'chriskempson/base16-vim'
+" NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
@@ -219,6 +220,7 @@ set softtabstop=4
 set shiftwidth=4  
 set expandtab
 set wrap  
+set textwidth=80
 set smarttab  
 set backspace=indent,eol,start
  
@@ -388,3 +390,4 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_section_warning=''
 let g:airline_section_x=''
 let g:airline_extensions = ['branch']
+let g:airline_theme='tomorrow'
