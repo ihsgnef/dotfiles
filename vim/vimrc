@@ -24,11 +24,11 @@ NeoBundle 'The-NERD-tree'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'vim-scripts/AutoClose'
+"NeoBundle 'vim-scripts/AutoClose'
 NeoBundle 'majutsushi/tagbar'
-" NeoBundle 'itchyny/lightline.vim'
 " NeoBundle 'chriskempson/base16-vim'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -132,7 +132,6 @@ noremap  k gk
 inoremap <M-k> <C-O>gk
 noremap  j gj
 inoremap <M-j> <C-O>gj
-imap     jj <ESC>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -140,6 +139,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap tn :tabnew<CR>
 nnoremap <S-H> :tabprevious<CR>
 nnoremap <S-L> :tabnext<CR>
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
 let mapleader=","
 
@@ -167,6 +167,8 @@ set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard
 
 " Display Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+set hidden
+:set switchbuf=usetab,newtab
 au BufRead,BufNewFile *.g set syntax=antlr3
 set title
 set t_Co=256 
@@ -390,4 +392,4 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_section_warning=''
 let g:airline_section_x=''
 let g:airline_extensions = ['branch']
-let g:airline_theme='tomorrow'
+let g:airline_theme='lucius'

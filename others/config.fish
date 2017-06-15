@@ -7,7 +7,6 @@ setenv EDITOR vim
 alias nnn='ncmpcpp'
 alias grep='grep --color=auto'
 alias cx='cd ..'
-alias l='ls -FsGgHhlp'
 alias l='ls -FsGgHhlprt'
 alias mv='mv -i'
 alias cp='cp -i'
@@ -21,6 +20,7 @@ alias rg='ranger'
 alias tmux='env TERM=screen-256color tmux'
 alias tt='tmux attach'
 alias tl='tmux list-sessions'
+alias ttt='tmux attach -dt'
 alias gup='git add --all :/; git commit -a -m "Update"; git push origin master'
 alias py16='env OMP_NUM_THREADS=16 python'
 alias py8='env OMP_NUM_THREADS=8 python'
@@ -30,11 +30,20 @@ alias py='env OMP_NUM_THREADS=1 python'
 alias htop='sudo htop -u fs'
 alias xshow='setfile -a v'
 alias xhide='setfile -a V'
-alias context='ssh shifeng@context.umiacs.umd.edu'
+alias pgit="proxychains4 git"
+alias pssh="proxychains4 /usr/local/bin/ssh"
+alias pc="proxychains4"
+alias youtube="youtube-dl -f bestvideo+bestaudio"
 
-set --export PYTHONPATH /Library/Python/2.7/site-packages/
+set -gx PYTHONPATH /Library/Python/2.7/site-packages/
+set -gx PATH /Users/fs/anaconda3/bin $PATH
+set -gx TF_VAR_key_pair shi-key
+set -gx TF_VAR_access_key AKIAIKSWTVV5LDUTFRAQ
+set -gx TF_VAR_secret_key 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
+set -gx QB_AWS_S3_BUCKET entilzha-us-west-2
+set -gx QB_AWS_S3_NAMESPACE pedro
 
-eval (python -m virtualfish auto_activation)
+# eval (python -m virtualfish auto_activation)
 
 begin
     set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
