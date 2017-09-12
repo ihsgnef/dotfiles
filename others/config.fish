@@ -1,3 +1,10 @@
+# Path to Oh My Fish install.
+set -q XDG_DATA_HOME
+  and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
+  or set -gx OMF_PATH "$HOME/.local/share/omf"
+
+# Load Oh My Fish configuration.
+source $OMF_PATH/init.fish
 # tmux
 
 set -g -x PATH /usr/local/bin /Users/fs/cross-compiler $PATH
@@ -27,21 +34,16 @@ alias py8='env OMP_NUM_THREADS=8 python'
 alias py4='env OMP_NUM_THREADS=4 python'
 alias py2='env OMP_NUM_THREADS=2 python'
 alias py='env OMP_NUM_THREADS=1 python'
-alias htop='sudo htop -u fs'
+alias htop='sudo htop'
 alias xshow='setfile -a v'
 alias xhide='setfile -a V'
 alias pgit="proxychains4 git"
 alias pssh="proxychains4 /usr/local/bin/ssh"
 alias pc="proxychains4"
-alias youtube="youtube-dl -f bestvideo+bestaudio"
 
 set -gx PYTHONPATH /Library/Python/2.7/site-packages/
 set -gx PATH /Users/fs/anaconda3/bin $PATH
-set -gx TF_VAR_key_pair shi-key
-set -gx TF_VAR_access_key AKIAIKSWTVV5LDUTFRAQ
-set -gx TF_VAR_secret_key 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
-set -gx QB_AWS_S3_BUCKET entilzha-us-west-2
-set -gx QB_AWS_S3_NAMESPACE pedro
+set -gx PATH /Users/fs/apache-maven-3.5.0/bin $PATH
 
 # eval (python -m virtualfish auto_activation)
 
@@ -66,5 +68,5 @@ end
 
 # Base16 Shell
 if status --is-interactive
-    eval sh $HOME/.config/base16-shell/scripts/base16-eighties.sh
+    eval sh /Users/fs/.config/base16-shell/scripts/base16-solarized-light.sh
 end
