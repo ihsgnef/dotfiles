@@ -1,7 +1,7 @@
 syntax on
 colorscheme base16-ocean
 let base16colorspace=256
-set background=dark
+set background=light
 
 set shell=/bin/bash
 
@@ -20,24 +20,16 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'junegunn/goyo.vim' 
 NeoBundle 'The-NERD-tree'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'terryma/vim-multiple-cursors'
-"NeoBundle 'vim-scripts/AutoClose'
 NeoBundle 'majutsushi/tagbar'
-" NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'sjl/gundo.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'nvie/vim-flake8'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -54,58 +46,6 @@ filetype plugin indent on
 
 NeoBundleCheck
 
-" F9 shortcuts
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function MakeShortcut(shortcut_dict) 
-    for a:ftype in keys(a:shortcut_dict)
-        let a:ftype_dict = a:shortcut_dict[a:ftype]
-        for a:key in keys(a:ftype_dict)
-            execute "autocmd filetype " . a:ftype . " map <buffer> " . 
-                        \ a:key . " :!sh -c '" . a:ftype_dict[a:key] . "' <CR>"
-        endfor
-    endfor
-endfunction
-
-let keymap_dict = {
-            \   'cpp' : 
-            \   {'<F9>' : 'g++ -o %< % -g -pg 
-            \               -Wall -Wextra -Wconversion -pedantic 
-            \               -Wno-long-long'}, 
-            \
-            \   'c' : 
-            \   {'<F9>' : 'gcc -o %< % -g -pg -std=c89  -ansi
-            \               -Wall -Wextra -Wconversion -pedantic 
-            \               -Wno-long-long',}, 
-            \
-            \   'java' : 
-            \   {'<F9>' : 'javac %',
-            \   '<F10>' : 'java %'}, 
-            \
-            \   'python' : 
-            \   {'<F8>' : 'python -i %', 
-            \    '<F9>' : 'python %'},
-            \
-            \   'sh' : 
-            \   {'<F9>' : 'chmod +x %',
-            \   '<F10>' : './%'}, 
-            \
-            \   'tex' :
-            \   {'<F9>' : 'xelatex -shell-escape %'},
-            \
-            \   'scheme' :
-            \   {'<F9>' : 'guile %'},
-			\
-            \   'gnuplot' :
-            \   {'<F9>' : 'gnuplot %',
-            \   '<F8>' : 'gqview %<.png'},
-			\
-            \   'ocaml' :
-            \   {'<F9>' : 'ocaml %'}
-            \ }
-
-call MakeShortcut(keymap_dict)
-
-
 " Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F1> :.w !pbcopy<CR><CR>
@@ -116,7 +56,6 @@ imap <F2> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 map <F3> :NERDTreeToggle<CR>
 nmap <F4> :TagbarToggle<CR>
 map <F10> :! ./%<<CR>
-nnoremap <F5> :GundoToggle<CR>
 
 map <C-c> :!clear<CR>
 
@@ -143,17 +82,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
 let mapleader=","
 
-" autocomplete abbreviation
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-iab #i #include
-iab im import
-iab pu public
-iab pri private
-iab pro protected
-iab cl class 
-iab ab abstract
-"iab re return
-
 " File Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 set nobackup 
@@ -164,6 +92,12 @@ filetype indent on
 set autochdir 
 set ffs=unix,dos,mac " favor unix ff, which behaves good under bot Winz & Linux  
 set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard 
+" set vim to chdir for each file
+if exists('+autochdir')
+    set autochdir
+else
+    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+endif
 
 " Display Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
@@ -271,80 +205,6 @@ function! NERDTreeQuit()
   endif
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
-
-" markdown
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vim_markdown_folding_disabled=1
-
-" Gundo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:gundo_preview_bottom = 1
-
-" indent guide
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=238
-"set ts=4 sw=4 et
-"let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-
-" Lightline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightLineFugitive',
-      \   'readonly': 'LightLineReadonly',
-      \   'modified': 'LightLineModified',
-      \   'filename': 'LightLineFilename'
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-       \ 'subseparator': { 'left': '|', 'right': '|' }
-      \ }
-
-       "\ 'separator': { 'left': '⮀', 'right': '⮂' },
-       " \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-
-function! LightLineModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
-function! LightLineReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return "⭤"
-  else
-    return ""
-  endif
-endfunction
-
-function! LightLineFugitive()
-  if exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? '⭠ '._ : ''
-  endif
-  return ''
-endfunction
-
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
 
 " Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
