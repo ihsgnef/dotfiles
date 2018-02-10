@@ -251,5 +251,5 @@ if !exists('g:airline_symbols')
 let g:airline_symbols.branch = '|'
 let g:airline_section_warning=''
 let g:airline_section_x=''
-let g:airline_extensions = ['branch']
+"let g:airline_extensions = ['branch']
 let g:airline_theme='lucius'
