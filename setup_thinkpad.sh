@@ -1,9 +1,9 @@
 cd ~/Downloads
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt-get -f install
 sudo apt update
 sudo apt install build-essential vim git tmux fish awesome arandr ibus-rime ibus-gtk ibus-gtk3 ibus-qt4 gnome-terminal thunar software-properties-common python-software-properties
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt-get -f install
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 mkdir -p ~/.vim/colors
 cd ~/.vim/colors
@@ -19,7 +19,7 @@ sudo apt install tp-smapi-dkms acpi-call-dkms
 sudo apt install acpitool
 sudo tlp start
 sudo apt install powertop
-sudo powertop --auto-tune
+# sudo powertop --auto-tune
 sudo add-apt-repository  ppa:klaus-vormweg/awesome -y
 sudo apt update
 sudo apt install  awesome -y
