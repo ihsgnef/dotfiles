@@ -11,6 +11,7 @@ alias tt='tmux attach'
 alias tl='tmux list-sessions'
 alias ttt='tmux attach -dt'
 alias newspeak='ssh -t context ssh newspeak'
+alias quenya='ssh -t context ssh quenya'
 
 set -gx PATH $HOME/anaconda3/bin $PATH
 
