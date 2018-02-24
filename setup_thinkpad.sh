@@ -33,4 +33,7 @@ git config --global alias.ci commit
 git config --global alias.st status
 cp ~/dotfiles/vimrc ~/.vimrc
 cp ~/dotfiles/tmux.conf ~/.tmux.conf
+mkdir ~/.config/fish/
+cp ~/dotfiles/config.fish ~/.config/fish/config.fish
+cp -r ~/dotfiles/awesome ~/.config/awesome
 sudo apt install texlive-full
