@@ -2,7 +2,7 @@ cd ~/Downloads
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get -f install
 sudo apt update
-sudo apt install build-essential vim git tmux fish arandr ibus-rime ibus-gtk ibus-gtk3 ibus-qt4 gnome-terminal thunar software-properties-common python-software-properties
+sudo apt install build-essential vim git tmux fish arandr ibus-rime ibus-gtk ibus-gtk3 ibus-qt4 gnome-terminal thunar software-properties-common python-software-properties ranger tlp
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt -f install
@@ -16,10 +16,11 @@ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.s
 sh ./install.sh
 # sudo add-apt-repository ppa:linrunner/tlp
 # sudo apt update
-# sudo apt install tlp tlp-rdw
+# sudo apt install tlp 
+# sudo apt install tlp-rdw
 # sudo apt install tp-smapi-dkms acpi-call-dkms
 # sudo apt install acpitool
-# sudo tlp start
+sudo tlp start
 # sudo apt install powertop
 # sudo powertop --auto-tune
 sudo add-apt-repository  ppa:klaus-vormweg/awesome -y
