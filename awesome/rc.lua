@@ -576,5 +576,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.util.spawn("setxkbmap -layout us -option ctrl:nocaps")
-awful.util.spawn("ibus-daemon")
+-- awful.util.spawn("ibus-daemon")
 awful.util.spawn("nm-applet")
