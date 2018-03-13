@@ -2,7 +2,7 @@ cd ~/Downloads
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get -f install
 sudo apt update
-sudo apt install build-essential vim git tmux fish arandr ibus-rime ibus-gtk ibus-gtk3 ibus-qt4 gnome-terminal thunar software-properties-common python-software-properties ranger tlp
+sudo apt install build-essential vim git tmux fish arandr fcitx-rime gnome-terminal thunar software-properties-common python-software-properties ranger tlp
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt -f install
