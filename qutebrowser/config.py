@@ -175,26 +175,87 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Shrink the completion to be smaller than the configured size if there
+# are no scrollbars.
+# Type: Bool
 c.completion.shrink = True
-c.downloads.location.directory = "~/Downloads/"
+
+# Directory to save downloads to. If unset, a sensible OS-specific
+# default is used.
+# Type: Directory
+c.downloads.location.directory = '~/Downloads/'
+
+# Prompt the user for the download location. If set to false,
+# `downloads.location.directory` will be used.
+# Type: Bool
 c.downloads.location.prompt = False
+
+# Where to show the downloaded files.
+# Type: VerticalPosition
+# Valid values:
+#   - top
+#   - bottom
 c.downloads.position = 'bottom'
+
+# Duration (in milliseconds) to wait before removing finished downloads.
+# If set to -1, downloads are never removed.
+# Type: Int
 c.downloads.remove_finished = 1000
-c.fonts.web.size.minimum = 13
+
+# Open new tabs (middleclick/ctrl+click) in the background.
+# Type: Bool
 c.tabs.background = True
+
+# How to behave when the last tab is closed.
+# Type: String
+# Valid values:
+#   - ignore: Don't do anything.
+#   - blank: Load a blank page.
+#   - startpage: Load the start page.
+#   - default-page: Load the default page.
+#   - close: Close the window.
 c.tabs.last_close = 'blank'
+
+# Padding (in pixels) around text for tabs.
+# Type: Padding
+c.tabs.padding = {'top': 3, 'bottom': 3, 'left': 5, 'right': 5}
+
+# Search engines which can be used via the address bar. Maps a search
+# engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
+# placeholder. The placeholder will be replaced by the search term, use
+# `{{` and `}}` for literal `{`/`}` signs. The search engine named
+# `DEFAULT` is used when `url.auto_search` is turned on and something
+# else than a URL was entered to be opened. Other search engines can be
+# used by prepending the search engine name to the search term, e.g.
+# `:open google qutebrowser`.
+# Type: Dict
 c.url.searchengines = {'DEFAULT': 'https://www.google.com/search?hl=en&q={}'}
+
+# Page(s) to open at the start.
+# Type: List of FuzzyUrl, or FuzzyUrl
 c.url.start_pages = 'google.com'
-c.colors.statusbar.normal.bg = '#FFFFFF'
-c.colors.statusbar.normal.fg = '#000000'
-c.bindings.key_mappings = {
-    '<Meta-1>': '<Alt-1>',
-    '<Meta-2>': '<Alt-2>',
-    '<Meta-3>': '<Alt-3>',
-    '<Meta-4>': '<Alt-4>',
-    '<Meta-5>': '<Alt-5>',
-    '<Meta-6>': '<Alt-6>',
-    '<Meta-7>': '<Alt-7>',
-    '<Meta-8>': '<Alt-8>',
-    '<Meta-9>': '<Alt-9>',
-    }
+
+# Foreground color of the statusbar.
+# Type: QssColor
+c.colors.statusbar.normal.fg = 'white'
+
+# Background color of the statusbar.
+# Type: QssColor
+c.colors.statusbar.normal.bg = 'black'
+
+# Font used in the tab bar.
+# Type: QtFont
+c.fonts.tabs = '10pt monospace'
+
+# Hard minimum font size (in pixels).
+# Type: Int
+c.fonts.web.size.minimum = 13
+
+# This setting can be used to map keys to other keys. When the key used
+# as dictionary-key is pressed, the binding for the key used as
+# dictionary-value is invoked instead. This is useful for global
+# remappings of keys, for example to map Ctrl-[ to Escape. Note that
+# when a key is bound (via `bindings.default` or `bindings.commands`),
+# the mapping is ignored.
+# Type: Dict
+c.bindings.key_mappings = {'<Meta+1>': '<Alt+1>', '<Meta+2>': '<Alt+2>', '<Meta+3>': '<Alt+3>', '<Meta+4>': '<Alt+4>', '<Meta+5>': '<Alt+5>', '<Meta+6>': '<Alt+6>', '<Meta+7>': '<Alt+7>', '<Meta+8>': '<Alt+8>', '<Meta+9>': '<Alt+9>'}
