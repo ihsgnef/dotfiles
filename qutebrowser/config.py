@@ -147,7 +147,7 @@ c.content.windowed_fullscreen = False
 #   - true
 #   - false
 #   - ask
-c.content.geolocation = 'ask'
+c.content.geolocation = True
 
 # Value to send in the `Accept-Language` header.
 # Type: String
@@ -243,9 +243,13 @@ c.colors.statusbar.normal.fg = 'white'
 # Type: QssColor
 c.colors.statusbar.normal.bg = 'black'
 
+# Font used in the statusbar.
+# Type: Font
+c.fonts.statusbar = '9pt monospace'
+
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = '10pt monospace'
+c.fonts.tabs = '9pt monospace'
 
 # Hard minimum font size (in pixels).
 # Type: Int
