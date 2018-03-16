@@ -254,12 +254,3 @@ c.fonts.tabs = '9pt monospace'
 # Hard minimum font size (in pixels).
 # Type: Int
 c.fonts.web.size.minimum = 13
-
-# This setting can be used to map keys to other keys. When the key used
-# as dictionary-key is pressed, the binding for the key used as
-# dictionary-value is invoked instead. This is useful for global
-# remappings of keys, for example to map Ctrl-[ to Escape. Note that
-# when a key is bound (via `bindings.default` or `bindings.commands`),
-# the mapping is ignored.
-# Type: Dict
-c.bindings.key_mappings = {'<Meta+1>': '<Alt+1>', '<Meta+2>': '<Alt+2>', '<Meta+3>': '<Alt+3>', '<Meta+4>': '<Alt+4>', '<Meta+5>': '<Alt+5>', '<Meta+6>': '<Alt+6>', '<Meta+7>': '<Alt+7>', '<Meta+8>': '<Alt+8>', '<Meta+9>': '<Alt+9>'}
