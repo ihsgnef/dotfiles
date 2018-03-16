@@ -33,6 +33,10 @@ local BAT0 = battery_widget {
     alert_title = "Low battery !",
     alert_text = "${AC_BAT}${time_est}"
 }
+local volume_control = require("volume-control")
+volumecfg = volume_control({})
+
+
 
 -- Load Debian menu entries
 local debian = require("debian.menu")
@@ -230,6 +234,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
             wibox.widget.systray(),
+            volumecfg.widget,
             BAT0,
             mytextclock,
             s.mylayoutbox,
@@ -578,5 +583,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.util.spawn("setxkbmap -layout us -option ctrl:nocaps")
-awful.util.spawn("ibus-daemon")
+awful.util.spawn("ibus-daemon -drx")
 awful.util.spawn("nm-applet")

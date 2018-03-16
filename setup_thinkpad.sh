@@ -1,5 +1,5 @@
 sudo apt update
-sudo apt install build-essential vim git tmux fish arandr ranger gnome-terminal thunar software-properties-common python-software-properties ranger tlp firefox vlc
+sudo apt install build-essential vim git tmux fish arandr ranger gnome-terminal thunar software-properties-common python-software-properties ranger tlp firefox vlc acpid
 sudo apt install ibus-rime ibus-gtk ibus-gtk3 ibus-qt4
 
 cd ~/Downloads
@@ -37,6 +37,11 @@ tox -e mkvenv-pypi
 sudo add-apt-repository  ppa:klaus-vormweg/awesome -y
 sudo apt update
 sudo apt install  awesome -y
+cp -r ~/dotfiles/awesome ~/.config/awesome
+cd ~/.config/awesome
+git clone https://github.com/deficient/volume-control.git
+git clone https://github.com/deficient/battery-widget.git
+sudo systemctl enable acpid
 
 git config --global user.email "shifeng@cs.umd.edu"
 git config --global user.name "ihsgnef"
@@ -49,5 +54,5 @@ cp ~/dotfiles/vimrc ~/.vimrc
 cp ~/dotfiles/tmux.conf ~/.tmux.conf
 mkdir ~/.config/fish/
 cp ~/dotfiles/config.fish ~/.config/fish/config.fish
-cp -r ~/dotfiles/awesome ~/.config/awesome
+
 sudo apt install texlive-full
