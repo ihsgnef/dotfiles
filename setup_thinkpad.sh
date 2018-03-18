@@ -54,11 +54,11 @@ cp ~/dotfiles/vimrc ~/.vimrc
 cp ~/dotfiles/tmux.conf ~/.tmux.conf
 mkdir ~/.config/fish/
 cp ~/dotfiles/config.fish ~/.config/fish/config.fish
-mkdir ~/.config/fish/functions/
-cp ~/dotfiles/fish_prompt.fish ~/.config/fish/functions/
+# mkdir ~/.config/fish/functions/
+# cp ~/dotfiles/fish_prompt.fish ~/.config/fish/functions/
 
 cd ~/Downloads/
-wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.ttf
-sudo cp ~/Downloads/Fura Code Regular Nerd Font Complete.ttf /usr/share/fonts/
+wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
+sudo cp ~/Downloads/Fura\ Mono\ Regular\ Nerd\ Font\ Complete.otf /usr/share/fonts/
 
 sudo apt install texlive-full
