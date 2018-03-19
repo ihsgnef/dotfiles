@@ -17,6 +17,7 @@
 \rhead{CMSC711}
 \begin{document}\raggedright
 \newcommand\NAME{Shi Feng}
+
 \question{1}{Search} \\
 For all protocols, we assume that Bob (or adversary) is "honest but curious": he
 will execute the protocol as is, but might record and explore any data that
@@ -26,7 +27,8 @@ state stored on Alice's side. We only consider word occurrence queries for
 correctness, but expand to other for the analysis of supported queries. We
 assume that symmetric encryption is secure.
 
-\part{0} P0 has perfect recall but imperfect precision.
+\part{0}
+P0 has perfect recall but imperfect precision.
 Alice needs to store the keys for symmetric encryption. Bob needs to store the
 $m$-bit output of the Bloom Filter for each document, and $r$ hash functions.
 The set size $n$ is exponential in the document length.  False positive rate is
@@ -38,21 +40,27 @@ ignores word order and duplicate words, this protocol only supports the word
 occurrence query. It will have bad precision on phrase query and word occurrence
 query with specified number of occurrences.
 
-\part{0a} Compared to P0, P0a has extra security guarantee that Bob cannot know
-the original word occurrence in each document. It requires extra storage of word
-hash function for Alice.  Other properties remain the same.
+\part{0a}
+Compared to P0, P0a has extra security guarantee that Bob cannot know the
+original word occurrence in each document.
+It requires extra storage of word hash function for Alice.
+Other properties remain the same.
 
-\part{1} This protocol can correctly return all and only documents containing
-the search terms. The only storage overhead is the hash functions on Alice's
-side. In terms of security, this is equivalent to a substitution cipher and is
-susceptible to frequency analysis. Since Bob performs string match, this
-protocol supports any kind of string matching query, including word occurrence
-and phrase occurrence.
+\part{1}
+This protocol can correctly return all and only documents containing the search
+terms. 
+The only storage overhead is the hash functions on Alice's side. 
+In terms of security, this is equivalent to a substitution cipher and is
+susceptible to frequency analysis.
+Since Bob performs string match, this protocol supports any kind of string
+matching query, including word occurrence and phrase occurrence.
 
-\part{1a} Same as P1.
+\part{1a}
+Same as P1.
 
-\part{2} This protocol can correctly return all and only documents containing
-search terms. 
+\part{2} 
+This protocol can correctly return all and only documents containing search
+terms. 
 Alice needs to store the keys for symmetric encryption and the word hash
 function; Bob needs to store the inverted index. 
 Bob knows the occurrences of hashed words in each document, so he can perform
@@ -63,10 +71,21 @@ This protocol, similar to P0, only supports word occurrence queries.
 The chaff can act as a defense against Bob's frequency analysis.
 
 \part{se}
+The computation of the pre-encrypted word $X_i=E_{k''}(W_i)$ and the key of
+stream cipher $k_i=f_{k'}(X_i)$ (replace $X_i$ with $L_i$ for scheme 4) are
+independent of position, so they can be cached, or pre-computed for the whole
+vocabulary.
 
+\newpage
 \question{2}{Untrusted Storage}
+
+\newpage
 \question{3}{CRL Analysis}
+
+\newpage
 \question{4}{Ephemeral Data}
+
+\newpage
 \question{5}{Trinc BlockChain}
 
 \end{document}
