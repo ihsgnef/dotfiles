@@ -100,20 +100,22 @@ The communication cost of a verification equals the size of the checksum.
 
 \part{2}
 This protocol is secure. Bob cannot know the set of the permutations as Alice
-uses a secrete PRNG. Even if he caches the permutations received from Alice and
-the corresponding checksums, he wouldn't know when to throw away the original
-data, because Alice can generate a new set of permutations when the first set is
-exhausted.
+uses a secret PRNG, so storing the signatures instead of the data will be too
+expensive. Even if he caches the permutations Alice sends and the corresponding
+checksums, he wouldn't know when to throw away the original data. Because Alice
+can generate a new set of permutations when the first set is exhausted.
 Storage overhead for Alice is flexible: she can generate the permutation 
-for each verification on the fly using a fixed seed (and reset after 1024). 
-If she chooses to store the pre-compute and store the premutations, she can also
-choose between storing the checksums or computing them for each verification.
+for each verification on the fly using a fixed seed (and reset after 1024), in
+which case the overhead is just the seed. Or she can choose to pre-compute and
+store the premutations, then she can still choose between storing the checksums
+or computing one for each verification.
 No extra state is required for Bob.
-Computation of the checksum is linear in the data size for both Alice and Bob.
-Alice can choose how to distribute the computation of 1024 checksums beforehand
-or during each verification, the total amount is the same.
-The communication cost for each verification is the size of a permutation
-(linear in data size) from Alice to Bob, plus the size of a checksum from Bob to
+Computation of the checksum is linear time in the data size for both Alice and
+Bob. Similar to storage, Alice can choose how to distribute the computation of
+the checksums, beforehand or during each verification, but the total amount is
+the same.
+The communication cost for each verification is the size of a permutation from
+Alice to Bob (linear in data size), plus the size of a checksum from Bob to
 Alice.
 
 \part{2.efficient}
