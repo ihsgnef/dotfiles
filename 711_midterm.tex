@@ -78,6 +78,49 @@ vocabulary.
 
 \newpage
 \question{2}{Untrusted Storage}
+For computation required for verification, we consider both sides: computing the
+function for Bob, and verification for Alice.
+
+\part{0}
+This protocol is secure.
+No extra storage required on either side.
+No computation required for Alice or Bob. But Alice needs to verify the data
+which is linear time in data size. She can perform checking using probabilistic
+sampling but it is out of the scope of this question.
+Each time Alice and Bob perform the verification, the communication cost is the
+size of the original data.
+
+\part{1}
+This protocol is not secure, as Bob only needs to store the checksum to pass the
+verfication.
+The storage overhead for Alice is the checksum, or she can compute it for every
+verification. Bob doesn't need to store any extra state.
+Computation of the checksum for both Alice and Bob is linear in the data size.
+The communication cost of a verification equals the size of the checksum.
+
+\part{2}
+This protocol is secure. Bob cannot know the set of the permutations as Alice
+uses a secrete PRNG. Even if he caches the permutations received from Alice and
+the corresponding checksums, he wouldn't know when to throw away the original
+data, because Alice can generate a new set of permutations when the first set is
+exhausted.
+Storage overhead for Alice is flexible: she can generate the permutation 
+for each verification on the fly using a fixed seed (and reset after 1024). 
+If she chooses to store the pre-compute and store the premutations, she can also
+choose between storing the checksums or computing them for each verification.
+No extra state is required for Bob.
+Computation of the checksum is linear in the data size for both Alice and Bob.
+Alice can choose how to distribute the computation of 1024 checksums beforehand
+or during each verification, the total amount is the same.
+The communication cost for each verification is the size of a permutation
+(linear in data size) from Alice to Bob, plus the size of a checksum from Bob to
+Alice.
+
+\part{2.efficient}
+This is not secure because two's complement is independent of sequence so
+permutation has no effect on the checksum.
+
+\part{Schwarz and Miller}
 
 \newpage
 \question{3}{CRL Analysis}
