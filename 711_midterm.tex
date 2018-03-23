@@ -138,6 +138,24 @@ permutation has no effect on the checksum. Thus Bob can shuffle the data but
 still pass the verification.
 
 \part{Schwarz and Miller}
+This paper proposed techniques that allow Alice to verify that untrusted
+storages faithfully store her data, without her having a local copy.
+
+The algorithm uses two main constructs: signature and parity. The signature is a
+compact representation of the data that can detect small changes. The parity of
+data blocks is a form of checksum. The calculations of signature and parity can
+commute: the signature of party equals the parity of signature. Specifically in
+this paper, the signature is the value of a $n$-degree polynomial with data
+blocks as coeffecients, the parity is a m/n erasure code. Both operates on the
+same Galois field.
+
+The protocol is: Alice calculate the parity blocks on the original data, and
+send data blocks + parity blocks to the remote storages. Then Alice no longer
+need her original copy. For verification, Alice specify a chunk in the original
+data and a key $\alpha$, and the remote storages return the signature of the
+specified chunk with the given key. Alice then checks if the parity of the
+signature blocks equal the signature of the parity block.
+- collusion protection
 
 \newpage
 \question{3}{CRL Analysis}
