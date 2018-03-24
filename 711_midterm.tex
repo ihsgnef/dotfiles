@@ -159,8 +159,9 @@ key. Alice then checks if the parity of the signature blocks equals the
 signature of the parity block.
 
 Although remote storage does not know the parity generation matrix, it may
-construct signatures that match 
-- collusion protection
+construct signatures that match with the parity - one trivial method is to
+return all zero signatures. When there are multiple remote storages, they might
+collude. 
 
 \newpage
 \question{3}{CRL Analysis}
