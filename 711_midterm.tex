@@ -159,15 +159,16 @@ key. Alice then checks if the parity of the signature blocks equals the
 signature of the parity block.
 
 Although remote storage does not know the parity generation matrix, it may
-construct signatures that match with the parity - one trivial method is to
-return all zero signatures. When there are multiple remote storages, they might
-collude. 
+construct signatures that match with the parity - one trivial case is to return
+all zero signatures. Multiple remote storages may collude and construct matching
+data and parity signatures. To defend, a stream cipher can be used 
 
 \newpage
 \question{3}{CRL Analysis}
 
 \newpage
 \question{4}{Ephemeral Data}
+
 
 \newpage
 \question{5}{Trinc BlockChain}
