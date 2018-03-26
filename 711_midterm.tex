@@ -158,16 +158,43 @@ the remote storages return the signature of the specified chunk with the given
 key. Alice then checks if the parity of the signature blocks equals the
 signature of the parity block.
 
-Although remote storage does not know the parity generation matrix, it may
-construct signatures that match with the parity - one trivial method is to
-return all zero signatures. When there are multiple remote storages, they might
-collude. 
+% Although remote storage does not know the parity generation matrix, it may
+% construct signatures that match with the parity - one trivial method is to
+% return all zero signatures. When there are multiple remote storages, they might
+% collude. 
 
 \newpage
 \question{3}{CRL Analysis}
 
 \newpage
 \question{4}{Ephemeral Data}
+One key issue is to find a trusted source of time. Since we cannot rely on a
+trusted third-party or Alice herself, the verification of time must be done by
+the decryption program running on Bob's computer, potentially with some network
+protocol. Hence this program must be protected against Bob's attempts to modify
+it, via methods like obfuscation. My assumption is that this protection is
+possible - that time can be correctly verified.
+
+The basic idea is to use two keys: $K_1$ encrypts the document, probably
+using some symmetric key; $K_2$ encrypts the first key, and the encyrption takes
+the expiration time as a parameter. The decryption program $f$ takes the current
+time $t$ (which by assumption is correct), the decryption key $K_2$, and
+attempts to decrypt. If $t<$ expiration time, it will return $K_1$ which allows
+Bobs to decrypt the document, otherwise it should either return nothing or an
+invalid key.
+
+Vulnerablility: the decryption program needs (internet) access to a secured
+source of time, as Bob can modify his system time as he wants. This secured
+source can be the server where Alice stores the data. This can be a point of
+attack.
+
+Remark: I understand that the assumption that time can be verified (on Bob) is
+quite strong, and not that different from assuming that the decryption program
+running on Bob's computer can act as a trusted third-party. The only alternative
+scheme I can think of is to have a periodically updated puzzle that must be
+solved with update-to-date timestamps. This scheme requiers either 1) Alice or
+some trusted third party momentarily, or 2) a protected client-side program,
+which is the same as my assumption for the previous scheme.
 
 \newpage
 \question{5}{Trinc BlockChain}
