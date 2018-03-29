@@ -221,21 +221,21 @@ $T_B$, which effectively defends against race and Finney attacks. Majority
 attack is still possible. We ignore this delayed confirmation in our solutio,
 and the security guarantee does not rely on it.
 
-The general idea of using TrInc to prevent double spending, is to serialize the
-transactions of each user and make sure the confirmed transaction history is
-continuous. ``Continuous" means ``counter values are incremental".
-We need two modifications to the protocol. To simplify, we set number of
-counters in each Trinket to one, and assume all counters start with the same
-initial value $0$.
+The general idea of TrInc-Bitcoin is to serialize the transactions of each user
+and make sure the confirmed transaction history is continuous, which means
+``counter values are incremental".  We need two modifications to the protocol.
+To simplify, we set number of counters in each Trinket to one, and assume all
+counters start with the same initial value $0$.
 
 First, a transaction needs to be signed and attested by the sender's Trinket, so
 all transactions are associated with user-specific counter values. The
-``advance" TrInc attestation increments the counter; the data field of one such
-attestation can be the hash of the transaction. This attestation is broadcasted
-and written to block chain together with the transaction. All nodes can verify
-the validity of such transaction - attestation pair.
+``advance" TrInc attestation increments the counter, the data field of one such
+attestation in TrInc-Bitcoin can be the hash of the transaction. This
+attestation is broadcasted and written to block chain together with the
+transaction. All nodes can verify the validity of such transaction - attestation
+pair.
 
-The second modification is several additional conditions for writing transaction
+The second modification is the addition of conditions for writing transaction
 to blocks, confirmation of transaction, and acceptance of a chain. Requirements
 already in Bitcoin protocol, such as not writing conflicting transactions, are
 left out.
@@ -254,7 +254,7 @@ left out.
     chain.
 \end{itemize}
 
-This protocol doesn't make extra assumption over Bitcoin. It ensures continuity
+TrInc-Bitcoin doesn't make extra assumption over Bitcoin. It ensures continuity
 - or even completeness if we ignore histories before deployment of this
 protocol - of user transaction histories in the block chain. It prevents
 double-spending. Going back to the two parties of the network that each receives
@@ -262,8 +262,10 @@ one of the two conflicting transactions. w.l.o.g assume the counter values
 $C_A < C_B$. The party that receives $T_A$ might confirm it. The party that
 receives $T_B$ will not confirm before seeing $T_A$, at which point a conflict
 will be detected and $T_B$ will be rejected.
-If Alice is capable of majority attack, her chain will never be confirmed if it
+If Alice is capable of majority attack, her chain will never be confirmed: if it
 contains $T_B$, as it either contains $T_A$ which shows conflict, or has
 incomplete history with $C_A$ missing.
+
+I'm still working on the problems of this protocol.
 
 \end{document}
