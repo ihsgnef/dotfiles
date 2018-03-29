@@ -5,7 +5,7 @@
 \usepackage{float}
 \usepackage[margin=1in]{geometry}
 \usepackage{fancyhdr}
-\usepackage{charter}
+%\usepackage{charter}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt plus 1pt}
 \setlength{\headheight}{6pt}
@@ -18,7 +18,8 @@
 \begin{document}\raggedright
 \newcommand\NAME{Shi Feng}
 
-\question{1}{Search}\\
+\question{1}{Search}
+
 For all protocols, we assume that Bob (or adversary) is ``honest but curious": he
 will execute the protocol as is, but might record and explore any data that
 Alice sends him. To simplify the answer, false positive documents returned to
@@ -77,7 +78,8 @@ independent of position, so they can be cached, or pre-computed for the whole
 vocabulary.
 
 \newpage
-\question{2}{Untrusted Storage}\\
+\question{2}{Untrusted Storage}
+
 For computation required for verification, we consider both sides: computing the
 function for Bob, and verification for Alice.
 One threat model is a third party extracting data from Bob, but we don't
@@ -168,6 +170,7 @@ signature of the parity block.
 
 \newpage
 \question{4}{Ephemeral Data}
+
 One key issue is to find a trusted source of time. Since we cannot rely on a
 trusted third-party or Alice herself, the verification of time must be done by
 the decryption program running on Bob's computer, potentially with some network
@@ -199,37 +202,67 @@ which is the same as my assumption for the previous scheme.
 
 \newpage
 \question{5}{TrInc BlockChain}
-There are various methods for double-spending, but the key is to have two
-conflicting transactions, $T_A$ and $T_B$. One case would be, $T_A$ is Alice
-sending all her bitcoins to her other account; $T_B$ is Alice sending all her
-bitcoins to Bob to by USD. Alice will convince Bob of the validity of $T_B$ so
-she receives the USD, then (or in parallel) make sure $T_A$ gets confirmed and
-written into the block chain.
 
-This is exactly equivocation - Alice tells two parties different things.
-Receivers of the two transactions differ in different implementations of
-double-spending. In race attack it's $T_A$ and $T_B$ goes to two subsets of the
-bitcoin network; in Finney attack and majority attack, it's Alice herself,
-hiding her own fork that contains $T_A$, versus the rest of the network.
+There are various methods for double-spending, but the necessary condition is
+have to two conflicting transactions, $T_A$ and $T_B$. One case would be, $T_A$
+is Alice sending all her bitcoins to her other account; $T_B$ is Alice sending
+all her bitcoins to Bob to by USD. Alice will convince Bob of the validity of
+$T_B$ so she receives the USD, then (or in parallel) make sure $T_A$ gets
+confirmed and written into the block chain.
+
+This is exactly equivocation - Alice tells two parties different things.  The
+division of two parties differs in different implementations of double-spending.
+In race attack it's $T_A$ and $T_B$ goes to two arbitrary subsets of the bitcoin
+network; in Finney attack and majority attack, it's Alice herself, hiding her
+own fork that contains $T_A$, versus the rest of the network that sees $T_B$.
 
 Under the current bitcoin protocol, Bob would wait for 6 blocks to confirm
 $T_B$, which effectively defends against race and Finney attacks. Majority
-attack is still possible. We don't rely on the delayed confirmation in our
-analysis.
+attack is still possible. We ignore this delayed confirmation in our solutio,
+and the security guarantee does not rely on it.
 
-The general idea of using TrInc to prevent double spending, is to make sure the
-confirmed transaction history is continuous. Specifically we need two
-modifications to the protocol. To simplify we set number of counters in each
-Trinket to one. First, a transaction needs to be signed by the sender's Trinket,
-so all transactions are associated with user-specific counter values.
-Second is to only write transaction $T_A$ with counter value $C_A$
-to a block if these conditions hold:
+The general idea of using TrInc to prevent double spending, is to serialize the
+transactions of each user and make sure the confirmed transaction history is
+continuous. ``Continuous" means ``counter values are incremental".
+We need two modifications to the protocol. To simplify, we set number of
+counters in each Trinket to one, and assume all counters start with the same
+initial value $0$.
+
+First, a transaction needs to be signed or attested by the sender's Trinket, so
+all transactions are associated with user-specific counter values. The 
+``advance" TrInc attestation increments the counter; the data field of one such
+attestation can be the hash of the transaction. This attestation is broadcasted
+and written to block chain together with the transaction. All nodes can verify
+the validity of such transaction - attestation pair.
+
+The second modification is several additional conditions for writing transaction
+to blocks, confirmation of transaction, and acceptance of a chain. Requirements
+already in Bitcoin protocol, such as not writing conflicting transactions, are
+left out.
+
 \begin{itemize}
-    \item The transaction doesn't conflict with transactions in the block chain,
-        that is, Alice isn't spending more than she has.
-    \item Alice's transaction history must be continuous. Let $C'$ be the
-        largest counter value of Alice's transactions witten in the block chain,
-        $C_A = C' + 1$
+    \item Additional steps for the confirmation of a set of transactions (size
+    might be 1) with the sender: sort the counter value from low to high, only
+    consider the prefix where the values are incremental; let $C$ be the
+    smallest counter in this unconfirmed set, and $C'$ be the largest counter in
+    the confirmed set with the same sender, only consider confirming the
+    transaction(s) if $C = C' + 1$, or $C=0$ and $C'=\text{NIL}$.
+    \item Reject any block or chain that contains incontinuous history of any
+    user, even when the chain is the longer.
+    \item The receiver should only confirm a transaction when all previous
+    transactions (ordered by counter value) from the sender are written in block
+    chain.
 \end{itemize}
+
+This protocol doesn't make extra assumption over Bitcoin. It ensures continuity
+- or even completeness if we ignore histories before deployment of this
+protocol - of user transaction histories in the block chain. It prevents
+double-spending. Going back to the two parties of the network that each receives
+one of the two conflicting transactions, assume the counter values $C_A < C_B$.
+The party that receives $T_A$ might confirm it. The party that receives
+$T_B$ will not confirm before seeing $T_A$, at which point the nodes will detect
+conflict and reject $T_B$. If Alice is capable of majority attack, her chain
+will never be confirmed if it contains $T_B$, as it either contains $T_A$ which
+shows conflict, or has incomplete history with $C_A$ missing.
 
 \end{document}
