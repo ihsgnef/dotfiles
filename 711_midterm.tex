@@ -198,6 +198,38 @@ which is the same as my assumption for the previous scheme.
 
 
 \newpage
-\question{5}{Trinc BlockChain}
+\question{5}{TrInc BlockChain}
+There are various methods for double-spending, but the key is to have two
+conflicting transactions, $T_A$ and $T_B$. One case would be, $T_A$ is Alice
+sending all her bitcoins to her other account; $T_B$ is Alice sending all her
+bitcoins to Bob to by USD. Alice will convince Bob of the validity of $T_B$ so
+she receives the USD, then (or in parallel) make sure $T_A$ gets confirmed and
+written into the block chain.
+
+This is exactly equivocation - Alice tells two parties different things.
+Receivers of the two transactions differ in different implementations of
+double-spending. In race attack it's $T_A$ and $T_B$ goes to two subsets of the
+bitcoin network; in Finney attack and majority attack, it's Alice herself,
+hiding her own fork that contains $T_A$, versus the rest of the network.
+
+Under the current bitcoin protocol, Bob would wait for 6 blocks to confirm
+$T_B$, which effectively defends against race and Finney attacks. Majority
+attack is still possible. We don't rely on the delayed confirmation in our
+analysis.
+
+The general idea of using TrInc to prevent double spending, is to make sure the
+confirmed transaction history is continuous. Specifically we need two
+modifications to the protocol. To simplify we set number of counters in each
+Trinket to one. First, a transaction needs to be signed by the sender's Trinket,
+so all transactions are associated with user-specific counter values.
+Second is to only write transaction $T_A$ with counter value $C_A$
+to a block if these conditions hold:
+\begin{itemize}
+    \item The transaction doesn't conflict with transactions in the block chain,
+        that is, Alice isn't spending more than she has.
+    \item Alice's transaction history must be continuous. Let $C'$ be the
+        largest counter value of Alice's transactions witten in the block chain,
+        $C_A = C' + 1$
+\end{itemize}
 
 \end{document}
