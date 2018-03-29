@@ -228,8 +228,8 @@ We need two modifications to the protocol. To simplify, we set number of
 counters in each Trinket to one, and assume all counters start with the same
 initial value $0$.
 
-First, a transaction needs to be signed or attested by the sender's Trinket, so
-all transactions are associated with user-specific counter values. The 
+First, a transaction needs to be signed and attested by the sender's Trinket, so
+all transactions are associated with user-specific counter values. The
 ``advance" TrInc attestation increments the counter; the data field of one such
 attestation can be the hash of the transaction. This attestation is broadcasted
 and written to block chain together with the transaction. All nodes can verify
@@ -258,11 +258,12 @@ This protocol doesn't make extra assumption over Bitcoin. It ensures continuity
 - or even completeness if we ignore histories before deployment of this
 protocol - of user transaction histories in the block chain. It prevents
 double-spending. Going back to the two parties of the network that each receives
-one of the two conflicting transactions, assume the counter values $C_A < C_B$.
-The party that receives $T_A$ might confirm it. The party that receives
-$T_B$ will not confirm before seeing $T_A$, at which point the nodes will detect
-conflict and reject $T_B$. If Alice is capable of majority attack, her chain
-will never be confirmed if it contains $T_B$, as it either contains $T_A$ which
-shows conflict, or has incomplete history with $C_A$ missing.
+one of the two conflicting transactions. w.l.o.g assume the counter values
+$C_A < C_B$. The party that receives $T_A$ might confirm it. The party that
+receives $T_B$ will not confirm before seeing $T_A$, at which point a conflict
+will be detected and $T_B$ will be rejected.
+If Alice is capable of majority attack, her chain will never be confirmed if it
+contains $T_B$, as it either contains $T_A$ which shows conflict, or has
+incomplete history with $C_A$ missing.
 
 \end{document}
