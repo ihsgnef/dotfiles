@@ -20,16 +20,12 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'junegunn/goyo.vim' 
 NeoBundle 'The-NERD-tree'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'w0rp/ale'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -48,14 +44,7 @@ NeoBundleCheck
 
 " Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F1> :.w !pbcopy<CR><CR>
-vmap <F1> :w !pbcopy<CR><CR>
-vmap <Enter> <Plug>(EasyAlign)
-nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <F2> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 map <F3> :NERDTreeToggle<CR>
-nmap <F4> :TagbarToggle<CR>
-map <F10> :! ./%<<CR>
 
 map <C-c> :!clear<CR>
 
@@ -89,7 +78,6 @@ setlocal noswapfile
 set confirm 
 filetype plugin on 
 filetype indent on 
-set autochdir 
 set ffs=unix,dos,mac " favor unix ff, which behaves good under bot Winz & Linux  
 set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard 
 " set vim to chdir for each file
@@ -205,28 +193,6 @@ function! NERDTreeQuit()
   endif
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
-
-" Unite
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-let g:unite_source_history_yank_enable = 1
-" nnoremap <C-p> :Unite file_rec/async -default-action=tabopen<cr>
-nnoremap <space>/ :Unite grep:.<cr>
-nnoremap <space>y :Unite history/yank<cr>
-inoremap <silent><buffer><expr> <C-s>     unite#do_action('split')
-inoremap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
-nnoremap <leader>ft :Unite file_rec/async -default-action=tabopen<cr>
-nnoremap <leader>fs :Unite file_rec/async -default-action=split<cr>
-nnoremap <leader>fv :Unite file_rec/async -default-action=vsplit<cr>
-nnoremap <leader>fc :Unite file_rec/async<cr>
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Play nice with supertab
-  let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
 
 " Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
