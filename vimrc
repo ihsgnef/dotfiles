@@ -225,10 +225,8 @@ let g:airline#extensions#ale#enabled = 1
 " ale
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
 let g:ale_linters = {
-\   'python': ['flak8'],
+\   'python': ['flake8'],
 \}
-let g:ale_sign_column_always = 1
-
 
 " syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
