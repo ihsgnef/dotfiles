@@ -25,8 +25,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-"NeoBundle 'w0rp/ale'
-NeoBundle 'vim-syntastic/syntastic'
+NeoBundle 'w0rp/ale'
+"NeoBundle 'vim-syntastic/syntastic'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -220,6 +220,14 @@ let g:airline_section_warning=''
 let g:airline_section_x=''
 "let g:airline_extensions = ['branch']
 let g:airline_theme='lucius'
+let g:airline#extensions#ale#enabled = 1
+
+" ale
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+let g:ale_linters = {
+\   'python': ['flak8'],
+\}
+let g:ale_sign_column_always = 1
 
 
 " syntastic
@@ -230,5 +238,6 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_quiet_messages = { "type": "style" }
