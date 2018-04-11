@@ -227,6 +227,11 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = {
 \   'python': ['flake8'],
 \}
+let g:ale_fixers = {
+\   'python': ['black'],
+\}
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
