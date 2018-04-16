@@ -17,13 +17,6 @@ cd ~/Downloads
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
 sh ./install.sh
 
-sudo apt install tox
-sudo apt install libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3
-cd ~
-git clone https://github.com/qutebrowser/qutebrowser.git
-cd qutebrowser
-tox -e mkvenv-pypi
-
 # sudo add-apt-repository ppa:linrunner/tlp
 # sudo apt update
 # sudo apt install tlp 
@@ -60,5 +53,3 @@ cp ~/dotfiles/config.fish ~/.config/fish/config.fish
 cd ~/Downloads/
 wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
 sudo cp ~/Downloads/Fura\ Mono\ Regular\ Nerd\ Font\ Complete.otf /usr/share/fonts/
-
-sudo apt install texlive-full
