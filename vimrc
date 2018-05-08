@@ -145,7 +145,7 @@ set softtabstop=4
 set shiftwidth=4  
 set expandtab
 set wrap  
-set textwidth=80
+set textwidth=70
 set smarttab  
 set backspace=indent,eol,start
  
