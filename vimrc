@@ -69,6 +69,7 @@ nnoremap tn :tabnew<CR>
 nnoremap <S-H> :tabprevious<CR>
 nnoremap <S-L> :tabnext<CR>
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 let mapleader=","
 
@@ -145,7 +146,7 @@ set softtabstop=4
 set shiftwidth=4  
 set expandtab
 set wrap  
-set textwidth=80
+set textwidth=70
 set smarttab  
 set backspace=indent,eol,start
  
