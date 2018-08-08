@@ -1,71 +1,42 @@
-function fish_prompt
-	and set retc green
-    or set retc red
-    tty | string match -q -r tty
-    and set tty tty
-    or set tty pts
+function fish_prompt --description 'Write out the prompt'
+	#Save the return status of the previous command
+    set stat $status
 
-    set_color $retc
-    set_color -o green
-    echo -n [
-    if test $USER = root -o $USER = toor
-        set_color -o red
-    else
-        set_color -o yellow
+    if not set -q __fish_prompt_normal
+        set -g __fish_prompt_normal (set_color normal)
     end
-    echo -n $USER
-    set_color -o white
-    echo -n @
-    if [ -z "$SSH_CLIENT" ]
-        set_color -o blue
-    else
-        set_color -o cyan
-    end
-    echo -n (prompt_hostname)
-    set_color -o white
-    #echo -n :(prompt_pwd)
-    echo -n :(pwd|sed "s=$HOME=~=")
-    set_color -o green
-    echo -n ']'
-    set_color normal
-    set_color $retc
-    if [ $tty = tty ]
-        echo -n '-'
-    else
-        echo -n '─'
-    end
-    set_color -o green
-    echo -n '['
-    set_color normal
-    set_color $retc
-    echo -n (date +%X)
-    set_color -o green
-    echo -n ]
 
-    if type -q acpi
-        if [ (acpi -a 2> /dev/null | string match -r off) ]
-            echo -n '─['
-            set_color -o red
-            echo -n (acpi -b|cut -d' ' -f 4-)
-            set_color -o green
-            echo -n ']'
-        end
+    if not set -q __fish_color_blue
+        set -g __fish_color_blue (set_color -o blue)
     end
-    echo
-    set_color normal
-    for job in (jobs)
-        set_color $retc
-        if [ $tty = tty ]
-            echo -n '; '
-        else
-            echo -n '│ '
-        end
-        set_color brown
-        echo $job
+
+    #Set the color for the status depending on the value
+    set __fish_color_status (set_color -o green)
+    if test $stat -gt 0
+        set __fish_color_status (set_color -o red)
     end
-    set_color normal
-    set_color $retc
-    set_color -o red
-    echo -n '$ '
-    set_color normal
+
+    switch $USER
+
+        case root toor
+
+            if not set -q __fish_prompt_cwd
+                if set -q fish_color_cwd_root
+                    set -g __fish_prompt_cwd (set_color $fish_color_cwd_root)
+                else
+                    set -g __fish_prompt_cwd (set_color $fish_color_cwd)
+                end
+            end
+
+            printf '%s@%s %s%s%s# ' $USER (prompt_hostname) "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal"
+
+        case '*'
+
+            if not set -q __fish_prompt_cwd
+                set -g __fish_prompt_cwd (set_color $fish_color_cwd)
+            end
+
+            printf '[%s] %s%s@%s %s%s %s(%s)%s \f\r> ' (date "+%H:%M:%S") "$__fish_color_blue" $USER (prompt_hostname) "$__fish_prompt_cwd" "$PWD" "$__fish_color_status" "$stat" "$__fish_prompt_normal"
+
+    end
 end
