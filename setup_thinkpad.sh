@@ -1,5 +1,7 @@
 sudo apt update
-sudo apt install build-essential vim git curl tmux fish arandr ranger gnome-terminal thunar software-properties-common python-software-properties ranger tlp vlc acpid
+sudo apt install build-essential vim git curl tmux fish
+sudo apt install software-properties-common python-software-properties 
+sudo apt install arandr ranger thunar tlp vlc acpid
 sudo apt install ibus-rime ibus-gtk ibus-gtk3 ibus-qt4
 
 cd ~/Downloads
@@ -48,9 +50,5 @@ cp ~/dotfiles/vimrc ~/.vimrc
 cp ~/dotfiles/tmux.conf ~/.tmux.conf
 mkdir ~/.config/fish/
 cp ~/dotfiles/config.fish ~/.config/fish/config.fish
-# mkdir ~/.config/fish/functions/
-# cp ~/dotfiles/fish_prompt.fish ~/.config/fish/functions/
-
-cd ~/Downloads/
-wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
-sudo cp ~/Downloads/Fura\ Mono\ Regular\ Nerd\ Font\ Complete.otf /usr/share/fonts/
+mkdir ~/.config/fish/functions/
+cp ~/dotfiles/fish_prompt.fish ~/.config/fish/functions/
