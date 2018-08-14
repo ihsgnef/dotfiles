@@ -17,5 +17,5 @@ set -gx PATH $HOME/anaconda3/bin $PATH
 
 # Base16 Shell
 if status --is-interactive
-    eval sh ~/.config/base16-shell/scripts/base16-solarized-light.sh
+    eval sh ~/.config/base16-shell/scripts/base16-solarized-dark.sh
 end
