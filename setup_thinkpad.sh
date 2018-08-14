@@ -1,5 +1,5 @@
 sudo apt update
-sudo apt install build-essential vim git curl tmux fish arandr ranger gnome-terminal thunar software-properties-common python-software-properties ranger tlp vlc acpid
+sudo apt install build-essential vim git curl tmux fish arandr ranger gnome-terminal thunar software-properties-common python-software-properties
 sudo apt install ibus-rime ibus-gtk ibus-gtk3 ibus-qt4
 
 cd ~/Downloads
