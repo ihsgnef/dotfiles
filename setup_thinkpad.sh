@@ -38,6 +38,7 @@ mkdir -p ~/.config/fish
 cp ~/dotfiles/config.fish ~/.config/fish/config.fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
 fisher rafaelrinaldi/pure
+fisher z
 
 sudo add-apt-repository  ppa:klaus-vormweg/awesome -y
 sudo apt update
