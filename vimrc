@@ -1,7 +1,7 @@
 syntax on
 colorscheme base16-ocean
 let base16colorspace=256
-set background=light
+set background=dark
 
 set shell=/bin/bash
 
