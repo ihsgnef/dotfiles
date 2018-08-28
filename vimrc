@@ -82,12 +82,9 @@ filetype plugin on
 filetype indent on 
 set ffs=unix,dos,mac " favor unix ff, which behaves good under bot Winz & Linux  
 set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard 
-" set vim to chdir for each file
-if exists('+autochdir')
-    set autochdir
-else
-    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
-endif
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
 " Display Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
