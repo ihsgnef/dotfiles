@@ -2,6 +2,7 @@ sudo apt update
 sudo apt install build-essential vim git curl tmux
 sudo apt install software-properties-common python-software-properties 
 sudo apt install arandr ranger thunar tlp vlc acpid
+sudo apt install gnome-screensaver
 sudo apt install ibus-rime ibus-gtk ibus-gtk3 ibus-qt4
 
 cd ~/Downloads

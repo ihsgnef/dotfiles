@@ -397,7 +397,8 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize horizontally", group = "client"}),
+    awful.key({ modkey, "Mod4"   }, "l", function () awful.util.spawn("gnome-screensaver-command -l") end)
 )
 
 -- Bind all key numbers to tags.
