@@ -26,7 +26,8 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'w0rp/ale'
-"NeoBundle 'vim-syntastic/syntastic'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'Vimjas/vim-python-pep8-indent'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -82,9 +83,7 @@ filetype plugin on
 filetype indent on 
 set ffs=unix,dos,mac " favor unix ff, which behaves good under bot Winz & Linux  
 set clipboard=unnamed,autoselect,exclude:cons\|linux "set clipboard 
-map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
-map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
+set autochdir
 
 " Display Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
