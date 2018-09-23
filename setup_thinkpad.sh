@@ -5,7 +5,7 @@ sudo apt install arandr ranger thunar tlp vlc acpid
 sudo apt install gnome-screensaver gnome-terminal
 sudo apt install ibus-rime ibus-gtk ibus-gtk3 ibus-qt4
 sudo apt install libx11-dev python-dev libxft-dev
-sudo apt install lxappearance
+sudo apt install lxappearance sshfs
 
 cd ~/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
