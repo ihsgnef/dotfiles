@@ -4,6 +4,7 @@ sudo apt install software-properties-common python-software-properties
 sudo apt install arandr ranger thunar tlp vlc acpid
 sudo apt install gnome-screensaver gnome-terminal
 sudo apt install ibus-rime ibus-gtk ibus-gtk3 ibus-qt4
+sudo apt install libx11-dev python-dev libxft-dev
 
 cd ~/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -59,3 +60,9 @@ git config --global alias.st status
 git config --global push.default simple
 
 cp ~/dotfiles/tmux.conf ~/.tmux.conf
+
+cd ~/Downloads
+wget 'https://dl.suckless.org/st/st-0.8.1.tar.gz'
+tar -xzvf st-0.8.1.tar.gz
+cd ~/Downloads/st-0.8.1/
+sudo make clean install
