@@ -73,7 +73,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 beautiful.tasklist_plain_task_name = false
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "st"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
