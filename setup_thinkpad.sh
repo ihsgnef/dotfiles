@@ -7,6 +7,8 @@ sudo apt install ibus-rime ibus-gtk ibus-gtk3 ibus-qt4
 sudo apt install libx11-dev python-dev libxft-dev
 sudo apt install lxappearance sshfs
 
+ranger --copy-config all
+
 cd ~/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb

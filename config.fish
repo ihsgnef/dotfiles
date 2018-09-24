@@ -14,8 +14,9 @@ alias newspeak='ssh -t clipsub ssh newspeak'
 alias quenya='ssh -t clipsub ssh quenya'
 
 set -gx PATH $HOME/anaconda3/bin $PATH
+set -gx RANGER_LOAD_DEFAULT_RC false
 
 # Base16 Shell
 if status --is-interactive
-    eval sh ~/.config/base16-shell/scripts/base16-solarized-dark.sh
+    eval sh ~/.config/base16-shell/scripts/base16-onedark.sh
 end
