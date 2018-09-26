@@ -296,6 +296,10 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
+    awful.key({ modkey, "Shift"    }, "Right",  function () awful.tag.incmwfact( 0.01)    end),
+    awful.key({ modkey, "Shift"    }, "Left",   function () awful.tag.incmwfact(-0.01)    end),
+    awful.key({ modkey, "Shift"    }, "Down",   function () awful.client.incwfact( 0.01)  end),
+    awful.key({ modkey, "Shift"    }, "Up",     function () awful.client.incwfact(-0.01)  end),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
