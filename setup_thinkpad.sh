@@ -1,11 +1,11 @@
+sudo add-apt-repository  ppa:klaus-vormweg/awesome -y
+sudo apt-add-repository ppa:fish-shell/release-2
 sudo apt update
-sudo apt install build-essential vim git curl tmux xclip
-sudo apt install software-properties-common python-software-properties 
-sudo apt install arandr ranger thunar tlp vlc acpid
-sudo apt install gnome-screensaver gnome-terminal
-sudo apt install ibus-rime ibus-gtk ibus-gtk3 ibus-qt4
-sudo apt install libx11-dev python-dev libxft-dev
-sudo apt install lxappearance sshfs
+sudo apt install build-essential vim git curl tmux xclip \
+software-properties-common python-software-properties arandr ranger \
+thunar tlp vlc acpid rofi mupdf gnome-screensaver gnome-terminal \
+ibus-rime ibus-gtk ibus-gtk3 ibus-qt4 libx11-dev python-dev \
+libxft-dev lxappearance sshfs fish awesome
 
 ranger --copy-config all
 
@@ -36,18 +36,12 @@ cp ~/dotfiles/vimrc ~/.vimrc
 # sudo apt install powertop
 # sudo powertop --auto-tune
 
-sudo apt-add-repository ppa:fish-shell/release-2
-sudo apt update
-sudo apt install fish
 mkdir -p ~/.config/fish
 cp ~/dotfiles/config.fish ~/.config/fish/config.fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
 fisher rafaelrinaldi/pure
 fisher z
 
-sudo add-apt-repository  ppa:klaus-vormweg/awesome -y
-sudo apt update
-sudo apt install  awesome -y
 cp -r ~/dotfiles/awesome ~/.config/awesome
 cd ~/.config/awesome
 git clone https://github.com/deficient/volume-control.git
