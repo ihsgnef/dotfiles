@@ -25,7 +25,6 @@ git clone git://github.com/chriskempson/base16-vim.git base16
 cp base16/colors/*.vim .
 cp ~/dotfiles/vimrc ~/.vimrc
 
-
 # sudo add-apt-repository ppa:linrunner/tlp
 # sudo apt update
 # sudo apt install tlp 
@@ -63,3 +62,5 @@ wget 'https://dl.suckless.org/st/st-0.8.1.tar.gz'
 tar -xzvf st-0.8.1.tar.gz
 cd ~/Downloads/st-0.8.1/
 sudo make clean install
+
+git clone https://github.com/newhoa/victory-icon-theme.git ~/.icons/victory-icon-theme/
