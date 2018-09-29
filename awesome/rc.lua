@@ -68,7 +68,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+beautiful.init("~/.config/awesome/themes/byte/theme.lua")
 -- beautiful.tasklist_disable_icon = true
 beautiful.tasklist_plain_task_name = false
 
