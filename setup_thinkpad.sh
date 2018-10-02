@@ -64,3 +64,4 @@ cd ~/Downloads/st-0.8.1/
 sudo make clean install
 
 git clone https://github.com/newhoa/victory-icon-theme.git ~/.icons/victory-icon-theme/
+git clone https://github.com/serialoverflow/awesome-themes.git ~/.config/awesome/themes/
