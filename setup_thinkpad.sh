@@ -5,7 +5,7 @@ sudo apt install build-essential vim git curl tmux xclip \
 software-properties-common python-software-properties arandr ranger \
 thunar tlp vlc acpid rofi mupdf gnome-screensaver gnome-terminal \
 ibus-rime ibus-gtk ibus-gtk3 ibus-qt4 libx11-dev python-dev \
-libxft-dev lxappearance sshfs fish awesome xscreensaver
+libxft-dev lxappearance lxrandr sshfs fish awesome xscreensaver
 
 ranger --copy-config all
 
