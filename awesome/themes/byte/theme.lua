@@ -53,8 +53,8 @@ theme.fg_focus      = "#659fdb"
 theme.fg_urgent     = "#f03669"
 theme.fg_minimize   = "#fafafa"
 
-theme.border_width  = "0"
-theme.border_normal = "#fafafa"
+theme.border_width  = "2"
+theme.border_normal = "#262729"
 theme.border_focus  = "#659fdb"
 theme.border_marked = "#91231c"
 
