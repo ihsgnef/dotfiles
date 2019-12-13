@@ -3,16 +3,6 @@ Host *
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
 
-Host github.com
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_rsa
-
-Host github-fs
-  HostName github.com
-  User git
-  IdentityFile ~/fs/.ssh/id_rsa_fs
-
 Host context
   HostName context.umiacs.umd.edu
   User shifeng
