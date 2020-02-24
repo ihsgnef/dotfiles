@@ -13,10 +13,8 @@ alias ttt='tmux attach -dt'
 alias newspeak='ssh -t clipsub ssh newspeak'
 alias quenya='ssh -t clipsub ssh quenya'
 
-set -gx PATH $HOME/anaconda3/bin $PATH
-set -gx RANGER_LOAD_DEFAULT_RC false
-
 # Base16 Shell
 if status --is-interactive
-    eval sh ~/.config/base16-shell/scripts/base16-onedark.sh
+    set BASE16_SHELL "$HOME/.config/base16-shell/"
+    source "$BASE16_SHELL/profile_helper.fish"
 end

@@ -1,4 +1,4 @@
-sudo apt install software-properties-common ranger build-essential make vim git curl libx11-dev python-dev libxft-dev sshfs libevent-dev libncurses-dev
+sudo apt install software-properties-common build-essential make vim git curl libx11-dev python-dev libxft-dev sshfs libevent-dev libncurses-dev
 
 
 sudo apt-add-repository ppa:fish-shell/release-3
@@ -20,8 +20,6 @@ sudo make install
 cd -
 sudo rm -rf /usr/local/src/tmux-\*
 sudo mv tmux-${TMUX_VERSION} /usr/local/src
-
-cp ~/dotfiles/tmux.conf ~/.tmux.conf
 
 
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
