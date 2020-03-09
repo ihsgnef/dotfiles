@@ -1,6 +1,6 @@
 # basic software
 sudo apt update
-sudo apt install software-properties-common build-essential make vim git curl libx11-dev python-dev libxft-dev libevent-dev libncurses-dev lxrandr sshfs
+sudo apt -y install software-properties-common build-essential make vim git curl libx11-dev python-dev libxft-dev libevent-dev libncurses-dev lxrandr sshfs
 
 
 # ssh
@@ -11,8 +11,8 @@ ssh-copy-id clipsub
 
 # fish
 sudo apt-add-repository ppa:fish-shell/release-3
-sudo apt-get update
-sudo apt-get install fish
+sudo apt update
+sudo apt -y install fish
 mkdir -p ~/.config/fish
 cp ~/dotfiles/config.fish ~/.config/fish/config.fish
 
@@ -65,5 +65,5 @@ git config --global push.default simple
 
 # ulauncher
 sudo apt-add-repository ppa:agornostal/ulauncher
-sudo apt-get update
-sudo apt-get install ulauncher
+sudo apt update
+sudo apt -y install ulauncher
