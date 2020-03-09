@@ -1,6 +1,5 @@
 sudo apt update
-sudo apt install software-properties-common build-essential make vim git curl libx11-dev python-dev libxft-dev sshfs libevent-dev libncurses-dev rofi ibus-rime ibus-gtk ibus-gtk3 libx11-dev python-dev libxft-dev lxrandr sshfs
-
+sudo apt install software-properties-common build-essential make vim git curl libx11-dev python-dev libxft-dev libevent-dev libncurses-dev lxrandr sshfs
 
 
 sudo apt-add-repository ppa:fish-shell/release-3
@@ -11,7 +10,6 @@ cp ~/dotfiles/config.fish ~/.config/fish/config.fish
 
 
 
-
 cd ~/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
@@ -19,13 +17,10 @@ sudo apt -f install
 
 
 
-
 TMUX_VERSION=3.0
-
 wget https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz
 tar xf tmux-${TMUX_VERSION}.tar.gz
 rm -f tmux-${TMUX_VERSION}.tar.gz
-
 cd tmux-${TMUX_VERSION}
 ./configure
 make
@@ -36,10 +31,10 @@ sudo mv tmux-${TMUX_VERSION} /usr/local/src
 
 
 
-
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
 sh ./install.sh
 rm install.sh
+
 
 
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
