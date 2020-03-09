@@ -1,12 +1,3 @@
-Host *
-  StrictHostKeyChecking no
-  GSSAPIAuthentication yes
-  GSSAPIDelegateCredentials yes
-
-Host context
-  HostName context.umiacs.umd.edu
-  User shifeng
-
 Host clipsub 
   HostName clipsub00.umiacs.umd.edu
   User shifeng
