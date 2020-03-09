@@ -36,6 +36,7 @@ sudo make install
 cd -
 sudo rm -rf /usr/local/src/tmux-\*
 sudo mv tmux-${TMUX_VERSION} /usr/local/src
+cp ~/dotfiles/tmux.conf ~/.tmux.conf
 
 
 # neobundle
