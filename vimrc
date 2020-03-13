@@ -23,8 +23,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
+" NeoBundle 'vim-airline/vim-airline'
+" NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'w0rp/ale'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Vimjas/vim-python-pep8-indent'
@@ -192,32 +192,32 @@ function! NERDTreeQuit()
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
-" Airline
+" " Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_mode_map = {
-      \ '__' : '-',
-      \ 'n'  : 'N',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
-      \ 'c'  : 'C',
-      \ 'v'  : 'V',
-      \ 'V'  : 'V',
-      \ '' : 'V',
-      \ 's'  : 'S',
-      \ 'S'  : 'S',
-      \ '' : 'S',
-      \ }
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-let g:airline_symbols.branch = '|'
-let g:airline_section_warning=''
-let g:airline_section_x=''
-"let g:airline_extensions = ['branch']
-let g:airline_theme='lucius'
-let g:airline#extensions#ale#enabled = 1
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
+" let g:airline_mode_map = {
+"       \ '__' : '-',
+"       \ 'n'  : 'N',
+"       \ 'i'  : 'I',
+"       \ 'R'  : 'R',
+"       \ 'c'  : 'C',
+"       \ 'v'  : 'V',
+"       \ 'V'  : 'V',
+"       \ '' : 'V',
+"       \ 's'  : 'S',
+"       \ 'S'  : 'S',
+"       \ '' : 'S',
+"       \ }
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+"   endif
+" let g:airline_symbols.branch = '|'
+" let g:airline_section_warning=''
+" let g:airline_section_x=''
+" "let g:airline_extensions = ['branch']
+" let g:airline_theme='lucius'
+" let g:airline#extensions#ale#enabled = 1
 
 " ale
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
