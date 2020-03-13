@@ -10,7 +10,7 @@ ssh-copy-id clipsub
 
 
 # fish
-sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-add-repository -y ppa:fish-shell/release-3
 sudo apt update
 sudo apt -y install fish
 mkdir -p ~/.config/fish
@@ -65,6 +65,6 @@ git config --global push.default simple
 
 
 # ulauncher
-sudo apt-add-repository ppa:agornostal/ulauncher
+sudo apt-add-repository -y ppa:agornostal/ulauncher
 sudo apt update
 sudo apt -y install ulauncher
