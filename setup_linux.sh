@@ -4,7 +4,6 @@ sudo apt -y install software-properties-common build-essential make vim git curl
 
 
 # ssh
-ssh-keygen
 cp ~/dotfiles/ssh_config ~/.ssh/config
 ssh-copy-id clipsub
 
