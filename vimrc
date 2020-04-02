@@ -1,7 +1,7 @@
 syntax on
-colorscheme base16-ocean
+colorscheme base16-default-light
 let base16colorspace=256
-set background=dark
+set background=light
 
 set shell=/bin/bash
 
@@ -20,13 +20,12 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'w0rp/ale'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'junegunn/vim-easy-align'
-" NeoBundle 'vim-airline/vim-airline'
-" NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'w0rp/ale'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Vimjas/vim-python-pep8-indent'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
@@ -46,9 +45,9 @@ NeoBundleCheck
 
 " Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F3> :NERDTreeToggle<CR>
 
-map <C-c> :!clear<CR>
+"remove search highlights
+map <C-c> :!clear<CR> 
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -70,7 +69,11 @@ nnoremap tn :tabnew<CR>
 nnoremap <S-H> :tabprevious<CR>
 nnoremap <S-L> :tabnext<CR>
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+
+nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nmap <F8> :TagbarToggle<CR>
+nnoremap <F9> :set foldmethod=indent<CR>
 
 let mapleader=","
 
@@ -141,8 +144,8 @@ set tabstop=4
 set softtabstop=4  
 set shiftwidth=4  
 set expandtab
-"set wrap  
-"set textwidth=80
+" set wrap  
+" set textwidth=80
 set smarttab  
 set backspace=indent,eol,start
  
@@ -152,7 +155,7 @@ set foldenable
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 let g:tagbar_left= 0
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+let g:tagbar_ctags_bin='/cliphomes/shifeng/.linuxbrew/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
 set splitbelow
 set splitright
@@ -191,33 +194,6 @@ function! NERDTreeQuit()
   endif
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
-
-" " Airline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
-" let g:airline_mode_map = {
-"       \ '__' : '-',
-"       \ 'n'  : 'N',
-"       \ 'i'  : 'I',
-"       \ 'R'  : 'R',
-"       \ 'c'  : 'C',
-"       \ 'v'  : 'V',
-"       \ 'V'  : 'V',
-"       \ '' : 'V',
-"       \ 's'  : 'S',
-"       \ 'S'  : 'S',
-"       \ '' : 'S',
-"       \ }
-" if !exists('g:airline_symbols')
-"     let g:airline_symbols = {}
-"   endif
-" let g:airline_symbols.branch = '|'
-" let g:airline_section_warning=''
-" let g:airline_section_x=''
-" "let g:airline_extensions = ['branch']
-" let g:airline_theme='lucius'
-" let g:airline#extensions#ale#enabled = 1
 
 " ale
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
