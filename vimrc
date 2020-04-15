@@ -1,5 +1,5 @@
 syntax on
-colorscheme base16-default-light
+colorscheme base16-default-dark
 let base16colorspace=256
 set background=light
 
@@ -55,6 +55,9 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 nnoremap d "_d
+vnoremap d "_d
+nnoremap x "_x
+vnoremap x "_x
 nnoremap ,p :put " <CR>
 noremap  k gk
 inoremap <M-k> <C-O>gk
@@ -154,7 +157,7 @@ set foldenable
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 let g:tagbar_left= 0
-let g:tagbar_ctags_bin='/cliphomes/shifeng/.linuxbrew/bin/ctags'
+let g:tagbar_ctags_bin='/usr/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
 set splitbelow
 set splitright
