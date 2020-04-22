@@ -1,7 +1,7 @@
 syntax on
 colorscheme base16-default-dark
 let base16colorspace=256
-set background=light
+set background=dark
 
 set shell=/bin/bash
 
@@ -26,6 +26,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Vimjas/vim-python-pep8-indent'
+NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -146,8 +147,8 @@ set tabstop=4
 set softtabstop=4  
 set shiftwidth=4  
 set expandtab
-" set wrap  
-" set textwidth=80
+set wrap  
+set textwidth=100
 set smarttab  
 set backspace=indent,eol,start
  
