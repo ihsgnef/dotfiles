@@ -26,7 +26,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Vimjas/vim-python-pep8-indent'
-NeoBundle 'Yggdroot/indentLine'
+"NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -39,6 +39,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 call neobundle#end()
 
+filetype plugin on
 filetype plugin indent on
 
 NeoBundleCheck
@@ -120,9 +121,6 @@ set shortmess=atI
 set report=0  
 set noerrorbells  
 set fillchars=vert:\ ,stl:\ ,stlnc:\  
-" highlight line with over 80 chars
-" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" match OverLength /\%81v.\+/
 
 " Searching and Matching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
@@ -147,8 +145,9 @@ set tabstop=4
 set softtabstop=4  
 set shiftwidth=4  
 set expandtab
-set wrap  
 set textwidth=100
+autocmd bufreadpre *.tex set textwidth=80
+set wrap  
 set smarttab  
 set backspace=indent,eol,start
  
@@ -158,7 +157,7 @@ set foldenable
 set foldmethod=manual  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
 let g:tagbar_left= 0
-let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:tagbar_ctags_bin='/cliphomes/shifeng/.linuxbrew/bin/ctags'
 set timeoutlen=1000 ttimeoutlen=0
 set splitbelow
 set splitright
@@ -208,3 +207,9 @@ let g:ale_fixers = {
 \}
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+let g:tex_conceal = ""
+
+" indentline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:indentLine_fileTypeExclude = ['json']
