@@ -13,8 +13,8 @@ alias ttt='tmux attach -dt'
 alias newspeak='ssh -t clipsub ssh newspeak'
 alias quenya='ssh -t clipsub ssh quenya'
 
-# # Base16 Shell
-# if status --is-interactive
-#     set BASE16_SHELL "$HOME/.config/base16-shell/"
-#     source "$BASE16_SHELL/profile_helper.fish"
-# end
+# Base16 Shell
+if status --is-interactive
+    set BASE16_SHELL "$HOME/.config/base16-shell/"
+    source "$BASE16_SHELL/profile_helper.fish"
+end
