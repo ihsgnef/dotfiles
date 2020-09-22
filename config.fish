@@ -10,8 +10,8 @@ alias tmux='tmux -2'
 alias tt='tmux attach'
 alias tl='tmux list-sessions'
 alias ttt='tmux attach -dt'
-alias newspeak='ssh -t clipsub ssh newspeak'
 alias quenya='ssh -t clipsub ssh quenya'
+alias ydl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4"
 
 # Base16 Shell
 if status --is-interactive

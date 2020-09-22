@@ -1,3 +1,24 @@
-Host clipsub 
-  HostName clipsub00.umiacs.umd.edu
+Host *
+  ServerAliveInterval 60
+
+# enable password-less login
+Host *
+  StrictHostKeyChecking no
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+
+Host clipsub
   User shifeng
+  HostName clipsub00.umiacs.umd.edu
+
+Host lapine
+  User shifeng
+  Hostname lapine.umiacs.umd.edu
+  Port 22
+  ProxyCommand ssh -q -W %h:%p clipsub
+
+Host newspeak
+  User shifeng
+  Hostname newspeak.umiacs.umd.edu
+  Port 22
+  ProxyCommand ssh -q -W %h:%p clipsub
