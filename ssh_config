@@ -7,18 +7,59 @@ Host *
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
 
-Host clipsub
+Host clipsub00
   User shifeng
   HostName clipsub00.umiacs.umd.edu
+
+Host clipsub01
+  User shifeng
+  HostName clipsub01.umiacs.umd.edu
 
 Host lapine
   User shifeng
   Hostname lapine.umiacs.umd.edu
   Port 22
-  ProxyCommand ssh -q -W %h:%p clipsub
+  ProxyCommand ssh -q -W %h:%p clipsub01
 
 Host newspeak
   User shifeng
   Hostname newspeak.umiacs.umd.edu
   Port 22
-  ProxyCommand ssh -q -W %h:%p clipsub
+  ProxyCommand ssh -q -W %h:%p clipsub01
+
+Host openlab
+  User shifeng
+  HostName opensub02.umiacs.umd.edu
+
+Host vulcan
+  User shifeng
+  Hostname vulcansub00.umiacs.umd.edu
+  Port 22
+  ProxyCommand ssh -q -W %h:%p openlab
+
+Host noserverentered
+  User shi
+  Hostname 173.66.69.153
+  Port 24105
+
+Host feai
+  User shif
+  Hostname fe.ai.cs.uchicago.edu
+
+# Default github account: oanhnn
+Host github.com
+   HostName github.com
+   IdentityFile ~/.ssh/id_rsa
+   IdentitiesOnly yes
+   
+# Other github account: superman
+Host github-xai
+   HostName github.com
+   IdentityFile ~/.ssh/id_rsa_xai
+   IdentitiesOnly yes
+
+Host karl-scheduler
+   User ubuntu
+   HostName 52.32.136.44
+   IdentityFile ~/.ssh/karl-scheduler.pem
+   IdentitiesOnly yes

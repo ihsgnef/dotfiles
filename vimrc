@@ -1,5 +1,5 @@
 syntax on
-colorscheme base16-default-dark
+colorscheme base16-default-light
 let base16colorspace=256
 set background=dark
 
@@ -20,13 +20,15 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'w0rp/ale'
+"NeoBundle 'w0rp/ale'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Vimjas/vim-python-pep8-indent'
 "NeoBundle 'Yggdroot/indentLine'
+NeoBundle "junegunn/goyo.vim"
+NeoBundle "junegunn/limelight.vim"
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -130,7 +132,7 @@ set ignorecase
 set hlsearch  
 set incsearch  
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$  
-set scrolloff=50
+set scrolloff=999
 set novisualbell  
 " ctrl+c to toggle highlight.
 let hlstate=0
@@ -146,7 +148,7 @@ set softtabstop=4
 set shiftwidth=4  
 set expandtab
 "set textwidth=100
-"autocmd bufreadpre *.tex set textwidth=80
+"autocmd bufreadpre *.tex set textwidth=70
 set wrap  
 set smarttab  
 set backspace=indent,eol,start
@@ -213,3 +215,39 @@ let g:tex_conceal = ""
 " indentline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:indentLine_fileTypeExclude = ['json']
+
+
+" goyo & limelight
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:goyo_width = 80
+let g:goyo_height = 40
+
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  set linebreak
+  set wrap
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
